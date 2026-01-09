@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -115,8 +116,15 @@
         }
 
         @keyframes wave {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .hero-container {
@@ -156,6 +164,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -210,8 +219,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .hero-image img {
@@ -495,7 +511,7 @@
         }
 
         /* NEW SECTIONS STYLING */
-        
+
         /* Recommendations Section */
         #recommendations {
             background: var(--light);
@@ -577,7 +593,9 @@
             transform: translateY(-10px);
         }
 
-        .hobby-card:hover i, .hobby-card:hover h3, .hobby-card:hover p {
+        .hobby-card:hover i,
+        .hobby-card:hover h3,
+        .hobby-card:hover p {
             color: white;
         }
 
@@ -616,9 +634,17 @@
             display: block;
         }
 
-        .social-stat-card.linkedin i { color: #0077b5; }
-        .social-stat-card.twitter i { color: #1da1f2; }
-        .social-stat-card.medium i { color: #ffffff; }
+        .social-stat-card.linkedin i {
+            color: #0077b5;
+        }
+
+        .social-stat-card.twitter i {
+            color: #1da1f2;
+        }
+
+        .social-stat-card.medium i {
+            color: #ffffff;
+        }
 
         .stat-val {
             font-size: 1.5rem;
@@ -685,10 +711,24 @@
         }
 
         @media (max-width: 768px) {
-            .hero-container, .about-content, .contact-content { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .stats { grid-template-columns: repeat(2, 1fr); }
+
+            .hero-container,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .reveal {
@@ -703,6 +743,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav id="navbar">
         <div class="nav-container">
@@ -724,7 +765,8 @@
             <div class="hero-content">
                 <h1>Sayan Adhikary</h1>
                 <h2>Senior Product Manager</h2>
-                <p>Building products that solve real problems and drive business growth. 6 years of turning complex challenges into elegant solutions.</p>
+                <p>Building products that solve real problems and drive business growth. 6 years of turning complex
+                    challenges into elegant solutions.</p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">Let's Talk <i class="fas fa-arrow-right"></i></a>
                     <a href="#projects" class="btn btn-secondary">View My Work <i class="fas fa-briefcase"></i></a>
@@ -740,12 +782,17 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="reveal">
-                <p>Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the Year (2024). My expertise lies at the intersection of AI/ML, data platforms, and customer experience.</p>
+                <p>Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the Year
+                    (2024). My expertise lies at the intersection of AI/ML, data platforms, and customer experience.</p>
                 <div class="stats">
-                    <div class="stat-item"><span class="stat-number" data-target="5.5">0</span><span class="stat-label">Years Experience</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="20">0</span><span class="stat-label">Products Launched</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="40">0</span><span class="stat-label">ARPU % Increase</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="9.3">0</span><span class="stat-label">CGPA / 10</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="5.5">0</span><span
+                            class="stat-label">Years Experience</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="20">0</span><span
+                            class="stat-label">Products Launched</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="40">0</span><span
+                            class="stat-label">ARPU % Increase</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="9.3">0</span><span
+                            class="stat-label">CGPA / 10</span></div>
                 </div>
             </div>
         </div>
@@ -807,6 +854,61 @@
         </div>
     </section>
 
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <h3><i class="fas fa-chart-line"></i> Product Management</h3>
+                    <div class="skill-items">
+                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg">
+                            Jira</span>
+                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
+                            Figma</span>
+                        <span class="skill-item"><i class="fas fa-tasks"></i> Asana</span>
+                        <span class="skill-item"><i class="fas fa-notebook"></i> Notion</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3><i class="fas fa-database"></i> Analytics</h3>
+                    <div class="skill-items">
+                        <span class="skill-item"><i class="fas fa-chart-bar"></i> Analytics</span>
+                        <span class="skill-item"><i class="fas fa-database"></i> SQL</span>
+                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
+                            MongoDB</span>
+                        <span class="skill-item"><i class="fas fa-file-excel"></i> Excel</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3><i class="fas fa-code"></i> Technical</h3>
+                    <div class="skill-items">
+                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                            HTML</span>
+                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                            JavaScript</span>
+                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+                            Node.js</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3><i class="fas fa-rocket"></i> Core Skills</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Strategy</span>
+                        <span class="skill-item">Leadership</span>
+                        <span class="skill-item">0-to-1 Launches</span>
+                        <span class="skill-item">Growth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Key Projects</h2>
@@ -814,86 +916,162 @@
                 <div class="project-card reveal">
                     <div class="project-image"><i class="fas fa-crown"></i></div>
                     <div class="project-content">
-                        <h3>Elite Matrimony</h3>
-                        <p>Premium matchmaking platform with AI-powered recommendations.</p>
+                        <h3 class="project-title">Elite Matrimony</h3>
+                        <p class="project-description">Premium matchmaking platform launched from 0-to-1 with AI-powered
+                            recommendations and custom architecture</p>
+                        <div class="project-tags">
+                            <span class="tag">0-to-1 Launch</span>
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Architecture</span>
+                        </div>
                         <div class="project-metrics">
-                            <div class="metric"><strong>40%</strong> ARPU Up</div>
+                            <div class="metric"><strong>40%</strong> ARPU Increase</div>
                             <div class="metric"><strong>5K+</strong> Users</div>
                         </div>
-                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-top: 27px; font-size: 0.9rem;">View Case Study</a>
+                        <a href="#case-study-elite" class="btn btn-primary"
+                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Case Study <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="project-card reveal">
                     <div class="project-image"><i class="fas fa-robot"></i></div>
                     <div class="project-content">
-                        <h3>AI Moderation</h3>
-                        <p>End-to-end AI-powered moderation for photos and government IDs.</p>
+                        <h3 class="project-title">AI Moderation System</h3>
+                        <p class="project-description">End-to-end AI-powered content moderation for photos and
+                            government IDs using OCR and ML models</p>
+                        <div class="project-tags">
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">OCR</span>
+                        </div>
                         <div class="project-metrics">
                             <div class="metric"><strong>70%</strong> Time Saved</div>
                             <div class="metric"><strong>45%</strong> Quality Up</div>
                         </div>
-                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-top: 27px; font-size: 0.9rem;">View Case Study</a>
                     </div>
                 </div>
                 <div class="project-card reveal">
                     <div class="project-image"><i class="fas fa-database"></i></div>
                     <div class="project-content">
-                        <h3>Customer Data Platform</h3>
-                        <p>Multi-channel CDP enabling personalized campaigns across 7 channels.</p>
+                        <h3 class="project-title">Customer Data Platform</h3>
+                        <p class="project-description">Multi-channel CDP enabling personalized campaigns across 7
+                            channels with advanced segmentation</p>
+                        <div class="project-tags">
+                            <span class="tag">Data Platform</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Growth</span>
+                        </div>
                         <div class="project-metrics">
-                            <div class="metric"><strong>35%</strong> Engagement</div>
+                            <div class="metric"><strong>35%</strong> Engagement Up</div>
                             <div class="metric"><strong>7</strong> Channels</div>
                         </div>
-                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-top: 27px; font-size: 0.9rem;">View Case Study</a>
+                        <a href="#case-study-cdp" class="btn btn-primary"
+                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Case Study <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-image"><i class="fas fa-users-cog"></i></div>
+                    <div class="project-content">
+                        <h3 class="project-title">HRMS Platform</h3>
+                        <p class="project-description">Full-stack HRMS solution built with Node.js serving entire
+                            organization for employee management</p>
+                        <div class="project-tags">
+                            <span class="tag">Full-Stack</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Internal Tool</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric"><strong>300+</strong> Employees</div>
+                            <div class="metric"><strong>50%</strong> Time Saved</div>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card reveal">
                     <div class="project-image"><i class="fas fa-newspaper"></i></div>
                     <div class="project-content">
-                        <h3>Ad Booking Platform</h3>
-                        <p>Self-serve platform for The Telegraph eliminating third-party dependency.</p>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>15%</strong> Revenue</div>
-                            <div class="metric"><strong>5K+</strong> Orders</div>
+                        <h3 class="project-title">Ad Booking Platform</h3>
+                        <p class="project-description">Self-serve platform for The Telegraph & Anandabazar Patrika
+                            eliminating third-party dependency</p>
+                        <div class="project-tags">
+                            <span class="tag">Disintermediation</span>
+                            <span class="tag">B2C</span>
+                            <span class="tag">Revenue</span>
                         </div>
-                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-top: 27px; font-size: 0.9rem;">View Case Study</a>
+                        <div class="project-metrics">
+                            <div class="metric"><strong>15%</strong> Revenue Recaptured</div>
+                            <div class="metric"><strong>5K+</strong> Monthly Orders</div>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-newspaper"></i></div>
+                    <div class="project-image"><i class="fas fa-chart-line"></i></div>
                     <div class="project-content">
-                        <h3>Ad Booking Platform</h3>
-                        <p>Self-serve platform for The Telegraph eliminating third-party dependency.</p>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>15%</strong> Revenue</div>
-                            <div class="metric"><strong>5K+</strong> Orders</div>
+                        <h3 class="project-title">Analytics Dashboard</h3>
+                        <p class="project-description">Excel-to-Dashboard tool for real-time data visualization enabling
+                            faster business decisions</p>
+                        <div class="project-tags">
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Dashboard</span>
+                            <span class="tag">Internal Tool</span>
                         </div>
-                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-top: 27px; font-size: 0.9rem;">View Case Study</a>
+                        <div class="project-metrics">
+                            <div class="metric"><strong>90%</strong> Faster Reports</div>
+                            <div class="metric"><strong>10 min</strong> vs 2 hours</div>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-newspaper"></i></div>
+                    <div class="project-image"><i class="fas fa-heart"></i></div>
                     <div class="project-content">
-                        <h3>Ad Booking Platform</h3>
-                        <p>Self-serve platform for The Telegraph eliminating third-party dependency.</p>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>15%</strong> Revenue</div>
-                            <div class="metric"><strong>5K+</strong> Orders</div>
+                        <h3 class="project-title">ABPweddings Platform</h3>
+                        <p class="project-description">End-to-end matrimony platform features including AI matching, CRM
+                            automation, and growth initiatives</p>
+                        <div class="project-tags">
+                            <span class="tag">Matrimony</span>
+                            <span class="tag">AI/ML</span>
+                            <span class="tag">CRM</span>
                         </div>
-                        <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem; margin-top: 27px; font-size: 0.9rem;">View Case Study</a>
+                        <div class="project-metrics">
+                            <div class="metric"><strong>10+</strong> Features</div>
+                            <div class="metric"><strong>28%</strong> Engagement Up</div>
+                        </div>
+                        <a href="#case-study-abpweddings" class="btn btn-primary"
+                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Features <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card reveal">
+                    <div class="project-image"><i class="fas fa-store"></i></div>
+                    <div class="project-content">
+                        <h3 class="project-title">eWards Restaurant Platform</h3>
+                        <p class="project-description">White-label ordering and loyalty platform serving 12+ restaurant
+                            brands with POS integrations</p>
+                        <div class="project-tags">
+                            <span class="tag">White-label</span>
+                            <span class="tag">B2B SaaS</span>
+                            <span class="tag">Integrations</span>
+                        </div>
+                        <div class="project-metrics">
+                            <div class="metric"><strong>50K+</strong> MAU</div>
+                            <div class="metric"><strong>42%</strong> Repeat Rate</div>
+                        </div>
+                        <a href="#case-study-ewards" class="btn btn-primary"
+                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Features <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="recommendations">
         <div class="container">
             <h2 class="section-title">Recommendations</h2>
             <div class="recommendation-grid reveal">
                 <div class="recommendation-card">
                     <i class="fas fa-quote-left"></i>
-                    <p class="rec-text">Sayan has an incredible knack for breaking down complex problems into actionable product roadmaps. His work on the Elite platform was a masterclass in 0-to-1 execution.</p>
+                    <p class="rec-text">Sayan has an incredible knack for breaking down complex problems into actionable
+                        product roadmaps. His work on the Elite platform was a masterclass in 0-to-1 execution.</p>
                     <div class="rec-author">
                         <img src="https://via.placeholder.com/50" alt="Peer">
                         <div class="rec-info">
@@ -904,7 +1082,8 @@
                 </div>
                 <div class="recommendation-card">
                     <i class="fas fa-quote-left"></i>
-                    <p class="rec-text">A data-driven PM who doesn't lose sight of the user experience. Sayan's implementation of the CDP revolutionized how we approach customer retention.</p>
+                    <p class="rec-text">A data-driven PM who doesn't lose sight of the user experience. Sayan's
+                        implementation of the CDP revolutionized how we approach customer retention.</p>
                     <div class="rec-author">
                         <img src="https://via.placeholder.com/50" alt="Peer">
                         <div class="rec-info">
@@ -924,12 +1103,14 @@
                 <div class="hobby-card">
                     <i class="fas fa-camera"></i>
                     <h3>Street Photography</h3>
-                    <p>Capturing the raw, candid moments of daily life in Kolkata. It helps me develop a keen eye for detail.</p>
+                    <p>Capturing the raw, candid moments of daily life in Kolkata. It helps me develop a keen eye for
+                        detail.</p>
                 </div>
                 <div class="hobby-card">
                     <i class="fas fa-pen-fancy"></i>
                     <h3>Tech Blogging</h3>
-                    <p>Writing about AI ethics and product management frameworks on Medium to give back to the community.</p>
+                    <p>Writing about AI ethics and product management frameworks on Medium to give back to the
+                        community.</p>
                 </div>
                 <div class="hobby-card">
                     <i class="fas fa-chess-knight"></i>
@@ -940,49 +1121,52 @@
         </div>
     </section>
 
-   <section id="contact">
-    <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content reveal">
-            <div class="contact-info" style="display: flex; flex-direction: column; align-items: flex-start;">
-                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8; max-width: 450px;">
-                    Interested in working together? I'd love to hear about your product challenges and explore how we can create impact together.
-                </p>
-                <a href="mailto:sayan.adhikary@email.com" class="btn btn-primary" style="padding: 0.8rem 1.5rem; font-size: 0.95rem; width: auto; min-width: 180px; justify-content: center;">
-                    Send Message <i class="fas fa-paper-plane"></i>
-                </a>
-            </div>
-            
-            <div class="contact-details-wrapper">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>sayan.adhikary@email.com</p>
-                    </div>
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content reveal">
+                <div class="contact-info" style="display: flex; flex-direction: column; align-items: flex-start;">
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8; max-width: 450px;">
+                        Interested in working together? I'd love to hear about your product challenges and explore how
+                        we can create impact together.
+                    </p>
+                    <a href="mailto:sayan.adhikary@email.com" class="btn btn-primary"
+                        style="padding: 0.8rem 1.5rem; font-size: 0.95rem; width: auto; min-width: 180px; justify-content: center;">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </a>
                 </div>
 
-                <div class="contact-item" style="margin-top: 1.5rem;">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Phone</h4>
-                        <p>+91-9748772134</p>
-                    </div>
-                </div>
-
-                <a href="https://linkedin.com/in/sayan-adhikary" target="_blank" style="text-decoration: none; color: inherit;">
-                    <div class="contact-item" style="margin-top: 1.5rem;">
-                        <i class="fab fa-linkedin-in"></i>
+                <div class="contact-details-wrapper">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
                         <div>
-                            <h4>LinkedIn</h4>
-                            <p>5,000+ Connections</p>
+                            <h4>Email</h4>
+                            <p>sayan.adhikary@email.com</p>
                         </div>
                     </div>
-                </a>
+
+                    <div class="contact-item" style="margin-top: 1.5rem;">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91-9748772134</p>
+                        </div>
+                    </div>
+
+                    <a href="https://linkedin.com/in/sayan-adhikary" target="_blank"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="contact-item" style="margin-top: 1.5rem;">
+                            <i class="fab fa-linkedin-in"></i>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>5,000+ Connections</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <footer>
         <p>&copy; 2026 Sayan Adhikary. All rights reserved. | Built with passion for great products</p>
@@ -1034,4 +1218,5 @@
         reveal();
     </script>
 </body>
+
 </html>
