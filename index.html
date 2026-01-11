@@ -61,6 +61,27 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo-img {
+            width: 45px;
+            /* Adjust size as needed */
+            height: 45px;
+            /* Should match width for a perfect circle */
+            border-radius: 50%;
+            /* This makes it round */
+            object-fit: cover;
+            /* Prevents stretching if your image isn't square */
+            border: 2px solid var(--primary);
+            /* Optional: adds a colored ring around your photo */
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo-img:hover {
+            transform: scale(1.1);
+            /* Subtle zoom effect on hover */
         }
 
         .nav-links {
@@ -406,18 +427,26 @@
         .skill-items {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            /* Allows items to wrap to next line if they don't fit */
+            gap: 10px;
+            /* Spacing between items */
+            justify-content: flex-start;
         }
 
         .skill-item {
+            /* Set a flex-basis or max-width if you want to force exactly 2 per line, 
+       otherwise 'auto' lets them sit naturally side-by-side */
+            flex: 0 1 auto;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--light);
+            gap: 8px;
+            padding: 8px 12px;
+            background: white;
             border-radius: 25px;
+            border: 1px solid #eee;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            white-space: nowrap;
+            /* Prevents text inside a skill from breaking */
         }
 
         .skill-item:hover {
@@ -529,6 +558,8 @@
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             position: relative;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .recommendation-card i.fa-quote-left {
@@ -731,15 +762,138 @@
             }
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
+        /* Modern Read More Button */
+        .read-more-btn {
+            background: rgba(37, 99, 235, 0.05);
+            /* Very light primary tint */
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .reveal.active {
+        .read-more-btn i {
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Arrow rotation and animation when expanded */
+        .read-more-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Smooth fade-in for the extra content */
+        .more-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+        }
+
+        .more-content.show {
+            display: block;
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Container for the scroller */
+        .recommendation-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 5px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;
+            /* Hide scrollbar IE/Edge */
+            cursor: grab;
+            /* Shows the hand icon for dragging */
+            scroll-behavior: smooth;
+        }
+
+        .recommendation-grid:active {
+            cursor: grabbing;
+        }
+
+        .recommendation-grid::-webkit-scrollbar {
+            display: none;
+            /* Hide scrollbar Chrome/Safari */
+        }
+
+        .recommendation-card {
+            flex: 0 0 450px;
+            scroll-snap-align: center;
+            /* ... keep your existing card styles ... */
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border: 1px solid #f1f5f9;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .hobby-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .hobby-tag {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 4px 12px;
+            background: #f1f5f9;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hobby-card p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -747,13 +901,17 @@
 <body>
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">SA</div>
+            <div class="logo">
+                <img src="sayan_cover.png" alt="Logo" class="nav-logo-img">
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#recommendations">Testimonials</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
                 <li><a href="#beyond">Beyond Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -773,7 +931,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://via.placeholder.com/400x400/667eea/ffffff?text=Your+Photo" alt="Sayan Adhikary">
+                <img src="sayan_dp.jpeg" alt="Sayan Adhikary">
             </div>
         </div>
     </section>
@@ -782,17 +940,28 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="reveal">
-                <p>Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the Year
-                    (2024). My expertise lies at the intersection of AI/ML, data platforms, and customer experience.</p>
+                <p>Specialized in building 0-to-1 products and scaling them to millions of users.
+                    Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the Year
+                    (2024) and Quarter (Q4 2025).
+                    Whether it's launching a premium matrimony vertical from scratch or building AI systems that process
+                    thousands of profiles daily, I focus on products that create tangible value for users and businesses
+                    alike.
+                </p>
+                <p><br>I'm energized by hard problems that require both strategic thinking and hands-on execution.
+                    Whether it's designing database architectures, analyzing user behavior patterns, or presenting
+                    product roadmaps to leadership, I thrive in environments where I can wear multiple hats and drive
+                    outcomes.
+                </p>
                 <div class="stats">
-                    <div class="stat-item"><span class="stat-number" data-target="5.5">0</span><span
+                    <div class="stat-item"><span class="stat-number" data-target="6">0</span><span
                             class="stat-label">Years Experience</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="20">0</span><span
-                            class="stat-label">Products Launched</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="30">0</span><span
+                            class="stat-label">Products / Features Launched</span></div>
                     <div class="stat-item"><span class="stat-number" data-target="40">0</span><span
-                            class="stat-label">ARPU % Increase</span></div>
+                            class="stat-label">ARPU Increase</span></div>
                     <div class="stat-item"><span class="stat-number" data-target="9.3">0</span><span
                             class="stat-label">CGPA / 10</span></div>
+
                 </div>
             </div>
         </div>
@@ -812,10 +981,25 @@
                     </div>
                     <div class="experience-description">
                         <ul>
-                            <li>Launched Elite Matrimony from 0-to-1, driving 40% increase in ARPU</li>
-                            <li>Built Customer Data Platform with 7-channel personalization</li>
-                            <li>Implemented AI moderation reducing manual review by 70%</li>
+                            <li>Launched ABP Elite Matrimony from 0 to 1, establishing premium matchmaking vertical and
+                                driving a 30% increase in ARPU and 20% increase in MAU</li>
+                            <li>Disintermediated third-party ad booking channel by building a customer-facing
+                                platform for The Telegraph and Anandabazar Patrika, recapturing 15% revenue</li>
+                            <div class="more-content" style="display: none;">
+                                <li>Implemented AI-powered photo and government ID moderation system using OCR and
+                                    Aadhaar verification, reducing manual review time by 95% and improving profile
+                                    quality by 45%</li>
+                                <li>Drove enterprise-grade integrations with platforms such as Karix, Infobip, Tata, and
+                                    Razorpay, powering omni-channel communication, payments, and tele-calling processes
+                                </li>
+                                <li>Led ABP Onestop Weddings lead generation site launch, capturing 3,000+ qualified
+                                    leads in first quarter</li>
+                            </div>
                         </ul>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">
+                            <span>Read More</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="experience-card reveal">
@@ -828,9 +1012,40 @@
                     </div>
                     <div class="experience-description">
                         <ul>
-                            <li>Disintermediated ad booking, recapturing 15% revenue</li>
-                            <li>Match by Hobbies feature increased engagement by 28%</li>
-                            <li>Appsflyer integration optimized UAC by 22%</li>
+                            <li>Built Customer Data Platform with segmentation engine, enabling personalized campaigns
+                                across 7 channels improving user engagement by 35% and decreasing operational cost by
+                                more than 50%</li>
+                            <li>Planned and launched Match by Hobbies feature with Ashtakoot compatibility matching,
+                                increasing profile engagement by 28%</li>
+                            <div class="more-content" style="display: none;">
+                                <li>Revamped the UI of the ABPweddings platform, improving user experience and
+                                    engagement by 20%</li>
+                                <li>Integrated Appsflyer with deep linking capabilities, optimizing user retention by
+                                    22%</li>
+                            </div>
+                        </ul>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">
+                            <span>Read More</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Project Manager</h3>
+                            <p class="experience-company">Codebuddy Pvt Ltd</p>
+                        </div>
+                        <span class="experience-date">Apr 2022 - Sep 2022</span>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Delivered insurance comparison website for Quotelion, integrating 15+ insurance
+                                providers and
+                                processing 10,000+ quote requests monthly with 99.5% uptime</li>
+                            <li>uilt advertisement booking platform for Adarth, streamlining space reservation workflow
+                                and
+                                reducing booking time by 60%.</li>
                         </ul>
                     </div>
                 </div>
@@ -838,16 +1053,170 @@
                     <div class="experience-header">
                         <div>
                             <h3 class="experience-title">Product Manager</h3>
-                            <p class="experience-company">ABPweddings (ABP Group)</p>
+                            <p class="experience-company">eWards</p>
                         </div>
-                        <span class="experience-date">Sep 2022 - Mar 2024</span>
+                        <span class="experience-date">Oct 2020 - Mar 2022</span>
                     </div>
                     <div class="experience-description">
                         <ul>
-                            <li>Disintermediated ad booking, recapturing 15% revenue</li>
-                            <li>Match by Hobbies feature increased engagement by 28%</li>
-                            <li>Appsflyer integration optimized UAC by 22%</li>
+                            <li> Designed and launched white-label app solution deployed across 12+ restaurant brands,
+                                serving
+                                50,000+ monthly active users</li>
+                            <li>Built end-to-end Order Management System handling 100,000+ orders monthly with automated
+                                workflow and real-time tracking</li>
+                            <div class="more-content" style="display: none;">
+                                <li>Developed Rewards and Loyalty Platform with gamification features, increasing repeat
+                                    purchase rate
+                                    by 42% and customer lifetime value by 35%</li>
+                                <li> Integrated Facebook, Instagram, WhatsApp, and POS systems (Petpooja, Posist
+                                    Technologies, Ginesys,
+                                    Shopify, Gofrugal) to create unified omnichannel experience, improving operational
+                                    efficiency by 38%
+                                </li>
+                                <li>Implemented customer feedback system with sentiment analysis, achieving 65% response
+                                    rate and
+                                    4.2/5 average satisfaction score</li>
+                            </div>
                         </ul>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">
+                            <span>Read More</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="experience-grid">
+
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Bachelor of Science in Data Science</h3>
+                            <p class="experience-company">Techno India University, Kolkata</p>
+                        </div>
+                        <span class="experience-date">2018 - 2021</span>
+                    </div>
+                    <div class="experience-description">
+                        <p><strong>Academic Excellence:</strong> Secured <strong>Silver Medal</strong> (Rank 2 among
+                            700+ students) for consistent academic performance.</p>
+
+                        <ul style="margin-top: 1rem;">
+                            <li><strong>Technical Foundation:</strong> Proficient in Data Structures & Analytics,
+                                including SQL/NoSQL Database Management, System Design, APIs and Statistical Modeling
+                                for data-driven decision making.</li>
+                            <li><strong>Early Career Milestone:</strong> Achieved the distinction of being the
+                                <strong>first student in the batch</strong> to secure a professional placement by the
+                                4th semester, demonstrating high industry readiness.
+                            </li>
+                            <li><strong>Leadership & Communication:</strong> Represented the University in state-level
+                                debates; won 1st prize in the <strong>GST Department of India</strong> debate
+                                competition, showcasing strong stakeholder management and articulation skills.</li>
+                            <li><strong>Competitive Programming:</strong> Awarded <strong>1st Runner-up</strong> in the
+                                inter-University Coding Hackathon, proving excellence in rapid prototyping and logical
+                                problem-solving.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">SQL (Intermediate) Professional Certification</h3>
+                            <p class="experience-company">HackerRank</p>
+                        </div>
+                        <span class="experience-date">2021</span>
+                    </div>
+
+                    <div class="experience-description"
+                        style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1rem;">
+
+                        <div class="experience-info-left" style="flex: 1;">
+                            <p><strong>Technical Mastery:</strong> Validated expertise in solving complex data retrieval
+                                challenges, essential for independent product performance analysis.</p>
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Advanced Querying:</strong> Proficient in <strong>Complex Joins, Unions, and
+                                        Multi-level Sub-queries</strong>.</li>
+                                <li><strong>Data Strategy:</strong> Ability to independently translate raw database
+                                    schemas into actionable business insights.</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-cert-right" style="flex: 0 0 220px;">
+                            <a href="https://www.hackerrank.com/certificates/e84c770f53a5" target="_blank"
+                                style="text-decoration: none;">
+                                <div
+                                    style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease; background: #fff;">
+                                    <img src="hackerrank.png" alt="HackerRank SQL Certificate"
+                                        style="width: 100%; display: block; padding: 10px;">
+
+                                    <div
+                                        style="background: rgba(15, 23, 42, 0.8); color: white; text-align: center; padding: 5px; font-size: 0.75rem; font-weight: 600;">
+                                        View Certificate <i class="fas fa-external-link-alt"
+                                            style="font-size: 0.65rem; margin-left: 4px;"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <p style="font-size: 0.75rem; color: var(--gray); text-align: center; margin-top: 8px;">
+                                Verified Professional ID: e84c770f53a5
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card reveal">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Crash Course on Python</h3>
+                            <p class="experience-company">Google Career Certificates (Coursera)</p>
+                        </div>
+                        <span class="experience-date">2020</span>
+                    </div>
+
+                    <div class="experience-description"
+                        style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1rem;">
+
+                        <div class="experience-info-left" style="flex: 1;">
+                            <p><strong>Automation Strategy:</strong> Specialized in leveraging Python to streamline
+                                product operations and automate high-frequency manual workflows to drive team
+                                efficiency.</p>
+                            <ul style="margin-top: 1rem;">
+                                <li><strong>Functional Programming:</strong> Proficient in writing modular Python
+                                    scripts using advanced data structures (<strong>Strings, Lists, and
+                                        Dictionaries</strong>) to manage complex product data.</li>
+                                <li><strong>Workflow Automation:</strong> Skilled in identifying automation
+                                    opportunities within the product lifecycle to perform automated actions, reducing
+                                    human error and operational lag.</li>
+                                <li><strong>Data Architecture:</strong> Strong understanding of Python’s role in modern
+                                    automation ecosystems, facilitating better technical requirements gathering for
+                                    engineering teams.</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-cert-right" style="flex: 0 0 220px;">
+                            <a href="https://www.coursera.org/account/accomplishments/verify/F6WN3AVL8X93"
+                                target="_blank" style="text-decoration: none;">
+                                <div class="cert-card-hover"
+                                    style="position: relative; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+                                    <div
+                                        style="background: #f8fafc; padding: 25px 10px; display: flex; justify-content: center; align-items: center;">
+                                        <img src="google.JPG" alt="Google Python Certificate"
+                                            style="width: 110%; display: block; padding: 10px;">
+                                    </div>
+
+                                    <div
+                                        style="background: #4285F4; color: white; text-align: center; padding: 8px; font-size: 0.75rem; font-weight: 600;">
+                                        View Certificate <i class="fas fa-external-link-alt"
+                                            style="font-size: 0.65rem; margin-left: 4px;"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <p style="font-size: 0.75rem; color: var(--gray); text-align: center; margin-top: 10px;">
+                                <i class="fab fa-google" style="color: #4285F4;"></i> Verified by Google
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -856,53 +1225,110 @@
 
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Skills & Tools</h2>
+            <h2 class="section-title">Skills and Tools</h2>
             <div class="skills-grid">
                 <div class="skill-category reveal">
-                    <h3><i class="fas fa-chart-line"></i> Product Management</h3>
+                    <h3><i class="fas fa-chess-knight"></i> Strategy & Leadership</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">0-to-1 Launches</span>
+                        <span class="skill-item">Product Roadmap</span>
+                        <span class="skill-item">Stakeholder Management</span>
+                        <span class="skill-item">Feature Prioritization</span>
+                        <span class="skill-item">Agile / Scrum</span>
+                        <span class="skill-item">Growth Strategy</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <h3><i class="fas fa-vials"></i> Product Ops & Design</h3>
                     <div class="skill-items">
                         <span class="skill-item"><img
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg">
                             Jira</span>
                         <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg">
+                            Confluence</span>
+                        <span class="skill-item"><img
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
                             Figma</span>
-                        <span class="skill-item"><i class="fas fa-tasks"></i> Asana</span>
-                        <span class="skill-item"><i class="fas fa-notebook"></i> Notion</span>
+                        <span class="skill-item">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" />
+                            Postman</span>
+                        <span class="skill-item">
+                            <img src="https://img.icons8.com/?size=100&id=11238&format=png&color=000000" />
+                            Whimsical</span>
+                        <span class="skill-item"><i class="fas fa-project-diagram"></i> Draw.io</span>
+                        <span class="skill-item">
+                            <img src="https://img.icons8.com/?size=100&id=XCww9HPskKrl&format=png&color=000000" />
+                            A/B Testing</span>
+                        <span class="skill-item"><i class="fas fa-users-viewfinder"></i> User Research</span>
                     </div>
                 </div>
+
                 <div class="skill-category reveal">
-                    <h3><i class="fas fa-database"></i> Analytics</h3>
+                    <h3><i class="fas fa-chart-pie"></i> Analytics & Growth</h3>
                     <div class="skill-items">
-                        <span class="skill-item"><i class="fas fa-chart-bar"></i> Analytics</span>
-                        <span class="skill-item"><i class="fas fa-database"></i> SQL</span>
                         <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
-                            MongoDB</span>
-                        <span class="skill-item"><i class="fas fa-file-excel"></i> Excel</span>
+                                src="https://img.icons8.com/?size=100&id=lIzGTzIFMKym&format=png&color=000000">
+                            Google Analytics</span>
+                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+                            MySQL</span>
+                        <span class="skill-item">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
+                            PostgreSQL</span>
+                        <span class="skill-item"><img
+                                src="https://img.icons8.com/?size=100&id=JChkA69vF7Lo&format=png&color=000000">
+                            Excel & Appscript</span>
+                        <span class="skill-item"><i class="fas fa-paper-plane"></i> WebEngage</span>
+
                     </div>
                 </div>
+
                 <div class="skill-category reveal">
-                    <h3><i class="fas fa-code"></i> Technical</h3>
+                    <h3><i class="fas fa-layer-group"></i> Technical Architecture</h3>
                     <div class="skill-items">
                         <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
-                            HTML</span>
-                        <span class="skill-item"><img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg">
+                            AWS (S3, EC2, API Gateway)</span>
+                        <span class="skill-item">
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg">
+                            Elasticsearch / OpenSearch
+                        </span>
+                        <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg">
+                            Redis
+                        </span>
+                        <span class="skill-item"><i class="fas fa-plug"></i> API Integrations</span>
+                        <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
+                            MongoDB / DynamoDB
+                        </span>
+                        <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+                            Node.js
+                        </span>
+                        <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+                            Python
+                        </span>
+                        <span class="skill-item">
+                            <img
                                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
-                            JavaScript</span>
-                        <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
-                            Node.js</span>
-                    </div>
-                </div>
-                <div class="skill-category reveal">
-                    <h3><i class="fas fa-rocket"></i> Core Skills</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Strategy</span>
-                        <span class="skill-item">Leadership</span>
-                        <span class="skill-item">0-to-1 Launches</span>
-                        <span class="skill-item">Growth</span>
+                            JavaScript
+                        </span>
+                        <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                            HTML
+                        </span>
+                        <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+                            CSS
+                        </span>
+
                     </div>
                 </div>
             </div>
@@ -921,12 +1347,12 @@
                             recommendations and custom architecture</p>
                         <div class="project-tags">
                             <span class="tag">0-to-1 Launch</span>
-                            <span class="tag">AI/ML</span>
-                            <span class="tag">Architecture</span>
+                            <span class="tag">B2C Platform</span>
+                            <span class="tag">System Design</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><strong>40%</strong> ARPU Increase</div>
-                            <div class="metric"><strong>5K+</strong> Users</div>
+                            <div class="metric"><strong>3K+</strong> Users</div>
                         </div>
                         <a href="#case-study-elite" class="btn btn-primary"
                             style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Case Study <i
@@ -957,7 +1383,7 @@
                         <p class="project-description">Multi-channel CDP enabling personalized campaigns across 7
                             channels with advanced segmentation</p>
                         <div class="project-tags">
-                            <span class="tag">Data Platform</span>
+                            <span class="tag">B2B + B2C</span>
                             <span class="tag">Automation</span>
                             <span class="tag">Growth</span>
                         </div>
@@ -979,7 +1405,7 @@
                         <div class="project-tags">
                             <span class="tag">Full-Stack</span>
                             <span class="tag">Node.js</span>
-                            <span class="tag">Internal Tool</span>
+                            <span class="tag">Vide Coded</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><strong>300+</strong> Employees</div>
@@ -1013,7 +1439,7 @@
                         <div class="project-tags">
                             <span class="tag">Analytics</span>
                             <span class="tag">Dashboard</span>
-                            <span class="tag">Internal Tool</span>
+                            <span class="tag">Vide Coded</span>
                         </div>
                         <div class="project-metrics">
                             <div class="metric"><strong>90%</strong> Faster Reports</div>
@@ -1028,8 +1454,8 @@
                         <p class="project-description">End-to-end matrimony platform features including AI matching, CRM
                             automation, and growth initiatives</p>
                         <div class="project-tags">
-                            <span class="tag">Matrimony</span>
-                            <span class="tag">AI/ML</span>
+                            <span class="tag">10M+ Users</span>
+                            <span class="tag">B2C</span>
                             <span class="tag">CRM</span>
                         </div>
                         <div class="project-metrics">
@@ -1064,59 +1490,161 @@
             </div>
         </div>
     </section>
+
     <section id="recommendations">
         <div class="container">
             <h2 class="section-title">Recommendations</h2>
             <div class="recommendation-grid reveal">
                 <div class="recommendation-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p class="rec-text">Sayan has an incredible knack for breaking down complex problems into actionable
-                        product roadmaps. His work on the Elite platform was a masterclass in 0-to-1 execution.</p>
-                    <div class="rec-author">
-                        <img src="https://via.placeholder.com/50" alt="Peer">
+                    <div>
+                        <i class="fas fa-quote-left"
+                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
+                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
+                            "Young, enthusiastic and a keen learner who can be trusted with innovative and challenging
+                            projects. He's the man to go to for your data management, data science and product related
+                            solutions."
+                        </p>
+                    </div>
+                    <div class="rec-author"
+                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
+                        <img src="https://media.licdn.com/dms/image/v2/C4D03AQFlVKwVttu9EQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1663783554826?e=1769644800&v=beta&t=eTr05tjhZLWWCWQIYVHqsHaz1KT4k6H763qrsBULeAY"
+                            alt="Karishma Pal"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                         <div class="rec-info">
-                            <h4>Amit Sharma</h4>
-                            <p>VP of Engineering, ABP Group</p>
+                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
+                                Karishma Pal
+                                <a href="https://www.linkedin.com/in/karishmapal7/" target="_blank"
+                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">Sr. Account Executive,
+                                LinkedIn</p>
                         </div>
                     </div>
                 </div>
                 <div class="recommendation-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p class="rec-text">A data-driven PM who doesn't lose sight of the user experience. Sayan's
-                        implementation of the CDP revolutionized how we approach customer retention.</p>
-                    <div class="rec-author">
-                        <img src="https://via.placeholder.com/50" alt="Peer">
+                    <div>
+                        <i class="fas fa-quote-left"
+                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
+                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
+                            "I have had the pleasure of working closely with Sayan, and I can confidently say he is an
+                            exceptional Product Manager who consistently bridges the gap between business vision,
+                            customer needs, and execution..."
+                        </p>
+                    </div>
+                    <div class="rec-author"
+                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQHCQq5r7Ksapw/profile-displayphoto-scale_100_100/B56ZjqlEBaHMAk-/0/1756282243038?e=1769644800&v=beta&t=1O0_8z6fI84jE1nFdNhmA8le9ky0fiADPAmomr5DNxY"
+                            alt="Santosh Kumar Das"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
                         <div class="rec-info">
-                            <h4>Priya Das</h4>
-                            <p>Marketing Director</p>
+                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
+                                Santosh Kumar Das
+                                <a href="https://www.linkedin.com/in/santosh-kumar-das-1041421a/" target="_blank"
+                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">QA Lead, ABPweddings</p>
                         </div>
                     </div>
                 </div>
+
+                <div class="recommendation-card">
+                    <div>
+                        <i class="fas fa-quote-left"
+                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
+                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
+                            "I worked closely with Sayan, where he played a key role in effectively bridging clients and
+                            the development team. He consistently demonstrated a strong understanding of client
+                            requirements and translated them into clear, actionable inputs for developers, enabling
+                            smooth and efficient collaboration. Sayan managed task tracking and scrums with discipline,
+                            kept priorities well aligned, and handled scope and timeline changes pragmatically as
+                            requirements evolved. His clear communication, proactive mindset, and focus on outcomes
+                            contributed to tangible product improvements and higher client satisfaction, and he is a
+                            dependable, genuinely pleasant colleague to work with."
+                        </p>
+                    </div>
+                    <div class="rec-author"
+                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQF3pnGvvwOxaw/profile-displayphoto-scale_400_400/B56ZrTqLYdHAAg-/0/1764487643644?e=1769644800&v=beta&t=jtk9KCa7yOHtf1UuCRr3UtSuNvSRZaWHMefq1BkvzA4"
+                            alt="Manish Gupta"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div class="rec-info">
+                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
+                                Manish Gupta
+                                <a href="https://www.linkedin.com/in/manish-gupta-82b449242/" target="_blank"
+                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">Sr. Software Developer,
+                                Ericsson</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-card">
+                    <div>
+                        <i class="fas fa-quote-left"
+                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
+                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
+                            "Sayan is very hard working professional. He is known for his perfection and dedication
+                            towards his work. He is very helpful and has been taking up new challenges since day one."
+                        </p>
+                    </div>
+                    <div class="rec-author"
+                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
+                        <img src="https://media.licdn.com/dms/image/v2/C5103AQF-I75FbUa0Bw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1554052350445?e=1769644800&v=beta&t=Hmif0yBh_va3roIxmN7825XkMCYe2UE4zl_Dzv4QQ4E"
+                            alt="Sakshi Bagri"
+                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div class="rec-info">
+                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
+                                Sakshi Bagri
+                                <a href="https://linkedin.com/in/sakshi-bagri-558a44183" target="_blank"
+                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
+                            </h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">Sr. Customer Success Manager,
+                                Rocketium</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <section id="beyond">
+    <section id="beyond" style="background: var(--light);">
         <div class="container">
-            <h2 class="section-title">Outside of Work I Do</h2>
-            <div class="hobby-grid reveal">
-                <div class="hobby-card">
-                    <i class="fas fa-camera"></i>
-                    <h3>Street Photography</h3>
-                    <p>Capturing the raw, candid moments of daily life in Kolkata. It helps me develop a keen eye for
-                        detail.</p>
+            <h2 class="section-title">Beyond the Desk</h2>
+            <div class="hobby-grid">
+
+                <div class="hobby-card reveal">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Founder, I Love Difference</h3>
+                    <p>Founded a non-profit in 2017 dedicated to street children in Kolkata. Successfully impacted
+                        <strong>4,000+ children</strong> through food and clothing drives during major festivals.</p>
+                    <span class="hobby-tag">Social Impact</span>
                 </div>
-                <div class="hobby-card">
-                    <i class="fas fa-pen-fancy"></i>
-                    <h3>Tech Blogging</h3>
-                    <p>Writing about AI ethics and product management frameworks on Medium to give back to the
-                        community.</p>
+
+                <div class="hobby-card reveal">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI & Gen-Labs</h3>
+                    <p>Passionately explore emerging tech by building <strong>Custom GPTs</strong> and automation
+                        workflows. Constantly experimenting with LLMs to solve micro-productivity challenges.</p>
+                    <span class="hobby-tag">Tech Enthusiast</span>
                 </div>
-                <div class="hobby-card">
-                    <i class="fas fa-chess-knight"></i>
-                    <h3>Strategy Games</h3>
-                    <p>An avid chess player and real-time strategy gamer. Always thinking three steps ahead.</p>
+
+                <div class="hobby-card reveal">
+                    <div class="hobby-icon-wrapper">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Finance & Freedom</h3>
+                    <p>Active <strong>investment enthusiast</strong> focused on Equity and Mutual Fund markets. When not
+                        analyzing charts, I’m exploring the countryside on <strong>long-distance bike rides</strong>.
+                    </p>
+                    <span class="hobby-tag">Strategy & Travel</span>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1130,7 +1658,7 @@
                         Interested in working together? I'd love to hear about your product challenges and explore how
                         we can create impact together.
                     </p>
-                    <a href="mailto:sayan.adhikary@email.com" class="btn btn-primary"
+                    <a href="mailto:sayan.adhikary.work@gmail.com" class="btn btn-primary"
                         style="padding: 0.8rem 1.5rem; font-size: 0.95rem; width: auto; min-width: 180px; justify-content: center;">
                         Send Message <i class="fas fa-paper-plane"></i>
                     </a>
@@ -1141,7 +1669,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>sayan.adhikary@email.com</p>
+                            <p>sayan.adhikary.work@gmail.com</p>
                         </div>
                     </div>
 
@@ -1153,7 +1681,7 @@
                         </div>
                     </div>
 
-                    <a href="https://linkedin.com/in/sayan-adhikary" target="_blank"
+                    <a href="https://linkedin.com/in/sayan-product" target="_blank"
                         style="text-decoration: none; color: inherit;">
                         <div class="contact-item" style="margin-top: 1.5rem;">
                             <i class="fab fa-linkedin-in"></i>
@@ -1173,6 +1701,85 @@
     </footer>
 
     <script>
+
+        const slider = document.querySelector('.recommendation-grid');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let autoScrollTimer;
+
+        // --- 1. MOUSE DRAG LOGIC ---
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            stopAutoScroll(); // Pause auto-scroll when user interacts
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            startAutoScroll(); // Resume when mouse leaves
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            startAutoScroll(); // Resume after click release
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll speed multiplier
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        // --- 2. AUTO-SCROLL LOGIC ---
+        function startAutoScroll() {
+            stopAutoScroll(); // Clear any existing timers
+            autoScrollTimer = setInterval(() => {
+                const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+                if (slider.scrollLeft >= maxScroll - 10) {
+                    // If at the end, jump back to start
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    // Scroll by the width of one card + gap
+                    slider.scrollBy({ left: 482, behavior: 'smooth' });
+                }
+            }, 3000); // 4 seconds per slide
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollTimer);
+        }
+
+        // Start on load
+        startAutoScroll();
+
+        // Stop on hover, Start on leave
+        slider.addEventListener('mouseenter', stopAutoScroll);
+        function toggleReadMore(btn) {
+            const parent = btn.closest('.experience-description');
+            const moreContent = parent.querySelector('.more-content');
+            const btnText = btn.querySelector('span');
+
+            // Toggle active state
+            btn.classList.toggle('active');
+
+            if (moreContent.classList.contains('show')) {
+                moreContent.classList.remove('show');
+                // Small timeout to allow the fade-out animation before hiding
+                setTimeout(() => { moreContent.style.display = 'none'; }, 400);
+                btnText.textContent = 'Read More';
+            } else {
+                moreContent.style.display = 'block';
+                // Small timeout to trigger the CSS transition
+                setTimeout(() => { moreContent.classList.add('show'); }, 10);
+                btnText.textContent = 'Read Less';
+            }
+        }
         // Scroll Reveal
         function reveal() {
             const reveals = document.querySelectorAll('.reveal');
