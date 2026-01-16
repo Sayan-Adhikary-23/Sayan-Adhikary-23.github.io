@@ -904,12 +904,6 @@
             /* Hide scrollbar Chrome/Safari */
         }
 
-        .recommendation-card {
-            flex: 0 0 450px;
-            scroll-snap-align: center;
-            /* ... keep your existing card styles ... */
-        }
-
         .hobby-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1886,7 +1880,7 @@
                     const gap = 32; // This is your 2rem gap
                     slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
                 }
-            }, 3000);
+            }, 5000);
         }
 
         function stopAutoScroll() {
