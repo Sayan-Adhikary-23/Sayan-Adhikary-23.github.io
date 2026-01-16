@@ -192,6 +192,25 @@
             }
         }
 
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
         .cta-buttons {
             display: flex;
             gap: 1rem;
@@ -259,7 +278,7 @@
         }
 
         section {
-            padding: 6rem 2rem;
+            padding: 4rem 1.5rem;
         }
 
         .section-title {
@@ -291,7 +310,7 @@
 
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 4rem;
             align-items: center;
         }
@@ -304,8 +323,8 @@
 
         .stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
             margin-top: 2rem;
         }
 
@@ -342,11 +361,12 @@
 
         .experience-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             border-left: 4px solid var(--primary);
             transition: all 0.3s ease;
+            margin-right: 0;
         }
 
         .experience-card:hover {
@@ -359,6 +379,8 @@
             justify-content: space-between;
             align-items: start;
             margin-bottom: 1rem;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .experience-title {
@@ -399,7 +421,7 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
         }
 
@@ -553,6 +575,9 @@
         }
 
         .recommendation-card {
+            flex: 0 0 450px;
+            /* Desktop width */
+            scroll-snap-align: center;
             background: white;
             padding: 2rem;
             border-radius: 15px;
@@ -703,8 +728,8 @@
 
         .contact-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -743,22 +768,64 @@
 
         @media (max-width: 768px) {
 
-            .hero-container,
-            .about-content,
-            .contact-content {
+            .hero-container {
                 grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 4rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+                /* Puts your photo above the text on mobile */
+                margin-bottom: 2rem;
             }
 
             .nav-links {
                 display: none;
+                /* Hide links by default */
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                /* Adjust based on your nav height */
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+                /* Show when toggled */
+                animation: fadeInDown 0.3s ease forwards;
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .stats {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .recommendation-card {
+                flex: 0 0 85vw;
+                /* Adjusts width based on the phone screen size */
+                padding: 1.5rem;
+            }
+
+            .experience-description {
+                flex-direction: column !important;
             }
         }
 
@@ -845,7 +912,7 @@
 
         .hobby-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
         }
 
@@ -895,6 +962,50 @@
             margin-top: 0.5rem;
             line-height: 1.6;
         }
+
+        @media (max-width: 768px) {
+
+            .menu-toggle {
+                display: block;
+                /* Show the bars on mobile */
+            }
+
+            /* Fix the grid/stack container */
+            .experience-grid,
+            .skills-stack,
+            .experience-content-wrapper {
+                display: flex !important;
+                flex-direction: column !important;
+                width: 100% !important;
+            }
+
+            /* Ensure cards don't have fixed widths */
+            .experience-card,
+            .skill-category {
+                width: 100% !important;
+                max-width: 100% !important;
+                flex: none !important;
+                margin-right: 0 !important;
+            }
+
+            /* Fix the 2-column layout (Text left, Cert right) we created earlier */
+            .experience-content-wrapper {
+                gap: 1.5rem !important;
+            }
+
+            .experience-cert-right {
+                flex: 0 0 auto !important;
+                width: 100% !important;
+                max-width: 300px;
+                /* Keeps the cert from being giant on mobile */
+                margin: 1.5rem auto 0;
+                /* Centers the image */
+            }
+
+            .experience-info-left {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -904,7 +1015,7 @@
             <div class="logo">
                 <img src="sayan_cover.png" alt="Logo" class="nav-logo-img">
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -915,6 +1026,9 @@
                 <li><a href="#beyond">Beyond Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -968,7 +1082,7 @@
     </section>
 
     <section id="experience" style="background: var(--light);">
-        <div class="container">
+        <div class="container" style="width: 100%;">
             <h2 class="section-title">Experience</h2>
             <div class="experience-grid">
                 <div class="experience-card reveal">
@@ -1089,7 +1203,7 @@
     </section>
 
     <section id="education" style="background: var(--light);">
-        <div class="container">
+        <div class="container" style="width: 100%;">
             <h2 class="section-title">Education</h2>
             <div class="experience-grid">
 
@@ -1151,7 +1265,7 @@
                                 <div
                                     style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease; background: #fff;">
                                     <img src="hackerrank.png" alt="HackerRank SQL Certificate"
-                                        style="width: 100%; display: block; padding: 10px;">
+                                        style="width: 100%; max-width: 450px; display: block; padding: 10px;">
 
                                     <div
                                         style="background: rgba(15, 23, 42, 0.8); color: white; text-align: center; padding: 5px; font-size: 0.75rem; font-weight: 600;">
@@ -1203,7 +1317,7 @@
                                     <div
                                         style="background: #f8fafc; padding: 25px 10px; display: flex; justify-content: center; align-items: center;">
                                         <img src="google.JPG" alt="Google Python Certificate"
-                                            style="width: 110%; display: block; padding: 10px;">
+                                            style="width: 100%; max-width: 450px; display: block; padding: 10px;">
                                     </div>
 
                                     <div
@@ -1620,7 +1734,8 @@
                     </div>
                     <h3>Founder, I Love Difference</h3>
                     <p>Founded a non-profit in 2017 dedicated to street children in Kolkata. Successfully impacted
-                        <strong>4,000+ children</strong> through food and clothing drives during major festivals.</p>
+                        <strong>4,000+ children</strong> through food and clothing drives during major festivals.
+                    </p>
                     <span class="hobby-tag">Social Impact</span>
                 </div>
 
@@ -1708,6 +1823,28 @@
         let scrollLeft;
         let autoScrollTimer;
 
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-menu');
+
+        // Toggle Menu
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle between bars and 'X' icon
+            const icon = mobileMenu.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenu.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
         // --- 1. MOUSE DRAG LOGIC ---
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
@@ -1737,18 +1874,19 @@
 
         // --- 2. AUTO-SCROLL LOGIC ---
         function startAutoScroll() {
-            stopAutoScroll(); // Clear any existing timers
+            stopAutoScroll();
             autoScrollTimer = setInterval(() => {
                 const maxScroll = slider.scrollWidth - slider.clientWidth;
 
                 if (slider.scrollLeft >= maxScroll - 10) {
-                    // If at the end, jump back to start
                     slider.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
-                    // Scroll by the width of one card + gap
-                    slider.scrollBy({ left: 482, behavior: 'smooth' });
+                    // DYNAMIC: Scroll by the width of the first card found
+                    const cardWidth = document.querySelector('.recommendation-card').offsetWidth;
+                    const gap = 32; // This is your 2rem gap
+                    slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
                 }
-            }, 3000); // 4 seconds per slide
+            }, 3000);
         }
 
         function stopAutoScroll() {
