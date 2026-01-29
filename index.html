@@ -1,1961 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayan Adhikary - Senior Product Manager</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sayan Adhikary | Senior Product Manager</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --primary: #2563eb;
-            --secondary: #1e40af;
-            --accent: #3b82f6;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --bg-color: #080808;
+            --text-color: #e6e6e6;
+            --accent-color: #d4af37;
+            --cursor-size: 20px;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
             overflow-x: hidden;
+            cursor: none;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
+        h1, h2, h3, .serif {
+            font-family: 'Italiana', serif;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-logo-img {
-            width: 45px;
-            /* Adjust size as needed */
-            height: 45px;
-            /* Should match width for a perfect circle */
+        /* Custom Cursor */
+        .cursor {
+            width: var(--cursor-size);
+            height: var(--cursor-size);
+            border: 1px solid white;
             border-radius: 50%;
-            /* This makes it round */
-            object-fit: cover;
-            /* Prevents stretching if your image isn't square */
-            border: 2px solid var(--primary);
-            /* Optional: adds a colored ring around your photo */
-            transition: transform 0.3s ease;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+            mix-blend-mode: difference;
         }
-
-        .nav-logo-img:hover {
-            transform: scale(1.1);
-            /* Subtle zoom effect on hover */
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,200 Q300,100 600,200 T1200,200 L1200,600 L0,600 Z" fill="rgba(255,255,255,0.05)"/></svg>') no-repeat bottom;
-            background-size: cover;
-            animation: wave 20s ease-in-out infinite;
-        }
-
-        @keyframes wave {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero-content h2 {
-            font-size: 1.8rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1.2s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            animation: fadeInUp 1.4s ease;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
+        
+        .cursor.hovered {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            opacity: 0.1;
             border: none;
         }
 
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        /* Scroll Progress */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent-color);
+            width: 0%;
+            z-index: 100;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        section {
-            padding: 4rem 1.5rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--light);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .experience-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .experience-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid var(--primary);
-            transition: all 0.3s ease;
-            margin-right: 0;
-        }
-
-        .experience-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .experience-title {
-            font-size: 1.5rem;
-            color: var(--dark);
-            margin-bottom: 0.25rem;
-        }
-
-        .experience-company {
-            font-size: 1.1rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .experience-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            white-space: nowrap;
-        }
-
-        .experience-description {
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        .experience-description ul {
-            margin-top: 1rem;
-            padding-left: 1.5rem;
-        }
-
-        .experience-description li {
-            margin-bottom: 0.5rem;
-        }
-
-        #skills {
-            background: var(--light);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .skill-category h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            /* Allows items to wrap to next line if they don't fit */
-            gap: 10px;
-            /* Spacing between items */
-            justify-content: flex-start;
-        }
-
-        .skill-item {
-            /* Set a flex-basis or max-width if you want to force exactly 2 per line, 
-       otherwise 'auto' lets them sit naturally side-by-side */
-            flex: 0 1 auto;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 25px;
-            border: 1px solid #eee;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            /* Prevents text inside a skill from breaking */
-        }
-
-        .skill-item:hover {
-            background: var(--gradient);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        .skill-item img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
+        /* Typography Utilities */
+        .reveal-text-container {
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+        }
+        
+        .reveal-text {
+            transform: translateY(100%);
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        /* Image Parallax */
+        .img-container {
+            overflow: hidden;
+            position: relative;
         }
-
-        .project-image {
+        
+        .img-container img {
             width: 100%;
-            height: 200px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-description {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            padding: 0.25rem 0.75rem;
-            background: var(--light);
-            border-radius: 15px;
-            font-size: 0.8rem;
-            color: var(--primary);
-        }
-
-        .project-metrics {
-            display: flex;
-            gap: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--light);
-        }
-
-        .metric {
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .metric strong {
-            color: var(--primary);
-            display: block;
-            font-size: 1.1rem;
-        }
-
-        /* NEW SECTIONS STYLING */
-
-        /* Recommendations Section */
-        #recommendations {
-            background: var(--light);
-        }
-
-        .recommendation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .recommendation-card {
-            flex: 0 0 450px;
-            /* Desktop width */
-            scroll-snap-align: center;
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: relative;
-            user-select: none;
-            -webkit-user-drag: none;
-        }
-
-        .recommendation-card i.fa-quote-left {
-            color: var(--accent);
-            font-size: 2rem;
-            opacity: 0.2;
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-        }
-
-        .rec-text {
-            font-style: italic;
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .rec-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .rec-author img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            height: 100%;
             object-fit: cover;
+            transform: scale(1.2);
         }
 
-        .rec-info h4 {
-            font-size: 1rem;
-            color: var(--dark);
+        /* Navigation */
+        nav {
+            mix-blend-mode: difference;
         }
 
-        .rec-info p {
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* Outside Work Section */
-        .hobby-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .hobby-card {
-            text-align: center;
-            padding: 2.5rem;
-            background: white;
-            border-radius: 20px;
-            border: 1px solid var(--light);
-            transition: all 0.3s ease;
-        }
-
-        .hobby-card:hover {
-            background: var(--gradient);
-            transform: translateY(-10px);
-        }
-
-        .hobby-card:hover i,
-        .hobby-card:hover h3,
-        .hobby-card:hover p {
-            color: white;
-        }
-
-        .hobby-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Social Followers Section */
-        .social-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .social-stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-stat-card:hover {
-            background: rgba(255, 255, 255, 0.15);
+        /* Project Cards */
+        .project-card:hover .project-img {
             transform: scale(1.05);
+            transition: transform 0.7s ease;
+        }
+        
+        /* Grid Utilities */
+        .grid-border {
+            border-bottom: 1px solid #222;
         }
 
-        .social-stat-card i {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
+        /* --- LOADER STYLES --- */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 10000; /* Ensures it stays on top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-        .social-stat-card.linkedin i {
-            color: #0077b5;
-        }
+.loader-count {
+    font-family: 'Italiana', serif;
+    font-size: 15vw;
+    color: #d4af37; /* Gold accent */
+    line-height: 1;
+}
 
-        .social-stat-card.twitter i {
-            color: #1da1f2;
-        }
+.loader-text {
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    margin-top: 20px;
+    color: #666;
+}
 
-        .social-stat-card.medium i {
-            color: #ffffff;
-        }
-
-        .stat-val {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            display: block;
-        }
-
-        .stat-name {
-            font-size: 0.8rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Rest of the original styling */
-        #contact {
-            background: var(--dark);
-            color: white;
-        }
-
-        #contact .section-title {
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--accent);
-        }
-
-        footer {
-            background: #000;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        @media (max-width: 768px) {
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 4rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .hero-image {
-                order: -1;
-                /* Puts your photo above the text on mobile */
-                margin-bottom: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-                /* Hide links by default */
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                /* Adjust based on your nav height */
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 2rem;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                gap: 1.5rem;
-                text-align: center;
-            }
-
-            .nav-links.active {
-                display: flex;
-                /* Show when toggled */
-                animation: fadeInDown 0.3s ease forwards;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .recommendation-card {
-                flex: 0 0 85vw;
-                /* Adjusts width based on the phone screen size */
-                padding: 1.5rem;
-            }
-
-            .experience-description {
-                flex-direction: column !important;
-            }
-        }
-
-        /* Modern Read More Button */
-        .read-more-btn {
-            background: rgba(37, 99, 235, 0.05);
-            /* Very light primary tint */
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            padding: 8px 16px;
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 15px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .read-more-btn i {
-            font-size: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-
-        .read-more-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
-            transform: translateY(-1px);
-        }
-
-        /* Arrow rotation and animation when expanded */
-        .read-more-btn.active i {
-            transform: rotate(180deg);
-        }
-
-        /* Smooth fade-in for the extra content */
-        .more-content {
-            display: none;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.4s ease;
-        }
-
-        .more-content.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Container for the scroller */
-        .recommendation-grid {
-            display: flex;
-            overflow-x: auto;
-            gap: 2rem;
-            padding: 2rem 5px;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            /* Hide scrollbar Firefox */
-            -ms-overflow-style: none;
-            /* Hide scrollbar IE/Edge */
-            cursor: grab;
-            /* Shows the hand icon for dragging */
-            scroll-behavior: smooth;
-        }
-
-        .recommendation-grid:active {
-            cursor: grabbing;
-        }
-
-        .recommendation-grid::-webkit-scrollbar {
-            display: none;
-            /* Hide scrollbar Chrome/Safari */
-        }
-
-        .hobby-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .hobby-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-            border: 1px solid #f1f5f9;
-        }
-
-        .hobby-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .hobby-icon-wrapper {
-            width: 60px;
-            height: 60px;
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .hobby-tag {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 4px 12px;
-            background: #f1f5f9;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hobby-card p {
-            color: var(--gray);
-            margin-bottom: 1rem;
-            margin-top: 0.5rem;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-
-            .menu-toggle {
-                display: block;
-                /* Show the bars on mobile */
-            }
-
-            /* Fix the grid/stack container */
-            .experience-grid,
-            .skills-stack,
-            .experience-content-wrapper {
-                display: flex !important;
-                flex-direction: column !important;
-                width: 100% !important;
-            }
-
-            /* Ensure cards don't have fixed widths */
-            .experience-card,
-            .skill-category {
-                width: 100% !important;
-                max-width: 100% !important;
-                flex: none !important;
-                margin-right: 0 !important;
-            }
-
-            /* Fix the 2-column layout (Text left, Cert right) we created earlier */
-            .experience-content-wrapper {
-                gap: 1.5rem !important;
-            }
-
-            .experience-cert-right {
-                flex: 0 0 auto !important;
-                width: 100% !important;
-                max-width: 300px;
-                /* Keeps the cert from being giant on mobile */
-                margin: 1.5rem auto 0;
-                /* Centers the image */
-            }
-
-            .experience-info-left {
-                width: 100%;
-            }
-        }
+/* Initially hide body scroll until loader finishes */
+body {
+    overflow: hidden;
+    height: 100vh;
+}
     </style>
 </head>
+<body class="antialiased selection:bg-[#d4af37] selection:text-black">
+    <div class="loader-overlay">
+    <div class="loader-count">0%</div>
+    <div class="loader-text">Sayan Adhikary • Portfolio</div>
+</div>
 
-<body>
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="sayan_cover.png" alt="Logo" class="nav-logo-img">
-            </div>
-            <ul class="nav-links" id="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#recommendations">Recommendations</a></li>
-                <li><a href="#beyond">Beyond Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
+    <div class="cursor"></div>
+
+    <div class="progress-bar"></div>
+
+    <nav class="fixed top-0 left-0 w-full p-6 md:p-10 flex justify-between items-center z-50">
+        <a href="#" class="text-xl font-bold tracking-widest hover-trigger serif">SAYAN ADHIKARY</a>
+        <div class="hidden md:flex gap-10 text-xs uppercase tracking-widest">
+            <a href="#about" class="hover-trigger hover:text-[#d4af37] transition">About</a>
+            <a href="#experience" class="hover-trigger hover:text-[#d4af37] transition">Experience</a>
+            <a href="#projects" class="hover-trigger hover:text-[#d4af37] transition">Work</a>
+            <a href="#skills" class="hover-trigger hover:text-[#d4af37] transition">Skills</a>
+            <a href="#contact" class="hover-trigger hover:text-[#d4af37] transition">Contact</a>
         </div>
+        <a href="#contact" class="hover-trigger border border-white/20 px-6 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">
+            Let's Talk
+        </a>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Sayan Adhikary</h1>
-                <h2>Senior Product Manager</h2>
-                <p>Building products that solve real problems and drive business growth. 6 years of turning complex
-                    challenges into elegant solutions.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Let's Talk <i class="fas fa-arrow-right"></i></a>
-                    <a href="#projects" class="btn btn-secondary">View My Work <i class="fas fa-briefcase"></i></a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="sayan_dp.png" alt="Sayan Adhikary">
-            </div>
-        </div>
-    </section>
+    <main id="main-content">
 
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="reveal">
-                <p>Specialized in building 0-to-1 products and scaling them to millions of users.
-                    Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the Year
-                    (2024) and Quarter (Q4 2025).
-                    Whether it's launching a premium matrimony vertical from scratch or building AI systems that process
-                    thousands of profiles daily, I focus on products that create tangible value for users and businesses
-                    alike.
-                </p>
-                <p><br>I'm energized by hard problems that require both strategic thinking and hands-on execution.
-                    Whether it's designing database architectures, analyzing user behavior patterns, or presenting
-                    product roadmaps to leadership, I thrive in environments where I can wear multiple hats and drive
-                    outcomes.
-                </p>
-                <div class="stats">
-                    <div class="stat-item"><span class="stat-number" data-target="6">0</span><span
-                            class="stat-label">Years Experience</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="30">0</span><span
-                            class="stat-label">Products / Features Launched</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="40">0</span><span
-                            class="stat-label">ARPU Increase</span></div>
-                    <div class="stat-item"><span class="stat-number" data-target="9.3">0</span><span
-                            class="stat-label">CGPA / 10</span></div>
-
-                </div>
+        <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 relative">
+            <p class="text-xs md:text-sm uppercase tracking-[0.3em] mb-6 text-gray-500 hero-fade">Senior Product Manager</p>
+            <h1 class="text-[12vw] leading-[0.9] text-center mix-blend-difference z-10 text-white">
+                <div class="reveal-text-container"><span class="block reveal-text">SOLVING</span></div>
+                <div class="reveal-text-container"><span class="block reveal-text">COMPLEX</span></div>
+                <div class="reveal-text-container"><span class="block reveal-text">PROBLEMS</span></div>
+            </h1>
+            <div class="mt-12 max-w-lg text-center text-gray-400 text-sm md:text-base leading-relaxed hero-fade">
+                Building products that solve real problems and drive business growth. 6 years of turning complex challenges into elegant solutions.
             </div>
-        </div>
-    </section>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 hero-fade">
+                <span class="text-[10px] uppercase tracking-widest">Scroll</span>
+                <div class="w-[1px] h-12 bg-gray-700"></div>
+            </div>
+        </section>
 
-    <section id="experience" style="background: var(--light);">
-        <div class="container" style="width: 100%;">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card reveal">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-title">Senior Product Manager</h3>
-                            <p class="experience-company">ABPweddings (ABP Group)</p>
-                        </div>
-                        <span class="experience-date">Apr 2024 - Present</span>
+        <section id="about" class="py-24 px-6 md:px-20 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-16">
+                <div class="md:col-span-4">
+                    <h2 class="text-sm uppercase tracking-widest text-gray-500 mb-8">About Me</h2>
+                    <div class="h-[400px] w-full bg-gray-900 img-container rounded-sm grayscale hover:grayscale-0 transition duration-700">
+                        <img src="dp.jpeg" alt="Sayan Adhikary">
                     </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Launched ABP Elite Matrimony from 0 to 1, establishing premium matchmaking vertical and
-                                driving a 30% increase in ARPU and 20% increase in MAU</li>
-                            <li>Disintermediated third-party ad booking channel by building a customer-facing
-                                platform for The Telegraph and Anandabazar Patrika, recapturing 15% revenue</li>
-                            <div class="more-content" style="display: none;">
-                                <li>Implemented AI-powered photo and government ID moderation system using OCR and
-                                    Aadhaar verification, reducing manual review time by 95% and improving profile
-                                    quality by 45%</li>
-                                <li>Drove enterprise-grade integrations with platforms such as Karix, Infobip, Tata, and
-                                    Razorpay, powering omni-channel communication, payments, and tele-calling processes
-                                </li>
-                                <li>Led ABP Onestop Weddings lead generation site launch, capturing 3,000+ qualified
-                                    leads in first quarter</li>
+                </div>
+                <div class="md:col-span-8 flex flex-col justify-center">
+                    <h3 class="text-3xl md:text-5xl serif leading-tight mb-8">
+                        "Specialized in building 0-to-1 products and scaling them to millions of users."
+                    </h3>
+                    <div class="text-gray-400 leading-relaxed space-y-6 max-w-2xl">
+                        <p>Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the Year (2024). Whether it's launching a premium matrimony vertical from scratch or building AI systems that process thousands of profiles daily, I focus on products that create tangible value for users and businesses alike.</p>
+                        <p>I'm energized by hard problems that require both strategic thinking and hands-on execution. From designing database architectures to analyzing user behavior patterns, I thrive in environments where I can wear multiple hats.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-12 border-t border-gray-900">
+                        <div>
+                            <span class="block text-3xl serif text-white">6+</span>
+                            <span class="text-xs uppercase tracking-widest text-gray-600">Years Exp</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl serif text-white">15+</span>
+                            <span class="text-xs uppercase tracking-widest text-gray-600">Products/Features</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl serif text-white">30%</span>
+                            <span class="text-xs uppercase tracking-widest text-gray-600">ARPU Lift</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl serif text-white">9.3/10</span>
+                            <span class="text-xs uppercase tracking-widest text-gray-600">CGPA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 px-6 md:px-20 bg-[#0c0c0c]">
+            <h2 class="text-5xl md:text-7xl mb-16 text-center serif text-[#333]">Experience</h2>
+            
+            <div class="max-w-5xl mx-auto space-y-4">
+                
+                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                    <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Senior Product Manager</h3>
+                        <span class="text-[#d4af37] text-sm uppercase tracking-widest">ABPweddings (ABP Group)</span>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                        <span>Apr 2024 - Present</span>
+                        <span>Kolkata, India</span>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm max-w-3xl hidden group-hover:block animate-fade-in">
+                        <li>Launched ABP Elite Matrimony from 0 to 1, driving 30% increase in ARPU and 20% in MAU.</li>
+                        <li>Disintermediated ad booking channels, recapturing 15% revenue via a new platform.</li>
+                        <li>Implemented AI-powered moderation (OCR/Aadhaar), reducing manual review time by 95%.</li>
+                        <li>Drove enterprise integrations (Karix, Razorpay) for omni-channel comms.</li>
+                        <li>Led ABP Onestop Weddings lead generation site launch, capturing 3K+ qualified leads in Q1.</li>
+                    </ul>
+                </div>
+
+                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                    <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Product Manager</h3>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest">ABPweddings (ABP Group)</span>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                        <span>Sep 2022 - Mar 2024</span>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm max-w-3xl hidden group-hover:block animate-fade-in">
+                        <li>Built Customer Data Platform with segmentation, improving engagement by 35% and reducing cost by 50%.</li>
+                        <li>Launched Match by Hobbies feature, increasing profile engagement by 28%.</li>
+                        <li>Revamped platform UI, improving UX and engagement by 20%.</li>
+                        <li>Integrated Appsflyer with deep linking capabilities, optimizing user retention by 22%.</li>
+                    </ul>
+                </div>
+
+                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                    <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Project Manager</h3>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest">Codebuddy Pvt Ltd</span>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                        <span>Apr 2022 - Sep 2022</span>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm max-w-3xl hidden group-hover:block animate-fade-in">
+                        <li>Delivered insurance comparison site for Quotelion (10k+ monthly requests).</li>
+                        <li>Built ad booking platform for Adarth, reducing booking time by 60%.</li>
+                    </ul>
+                </div>
+
+                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                    <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Product Manager</h3>
+                        <span class="text-gray-500 text-sm uppercase tracking-widest">eWards</span>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                        <span>Oct 2020 - Mar 2022</span>
+                    </div>
+                    <ul class="list-disc list-inside text-gray-400 space-y-2 text-sm max-w-3xl hidden group-hover:block animate-fade-in">
+                        <li>Designed white-label apps for 12+ restaurant brands (50k+ MAU).</li>
+                        <li>Built Order Management System handling 100k+ orders monthly.</li>
+                        <li>Developed Rewards Platform increasing repeat purchase rate by 42%.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="py-24">
+            <div class="px-6 md:px-20 mb-20">
+                <h2 class="text-5xl md:text-7xl mb-4 serif">Key Projects</h2>
+                <div class="h-[1px] w-full bg-gray-800"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-0 border-b border-gray-900 group">
+                <div class="h-[60vh] img-container bg-gray-900 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2670&auto=format&fit=crop" alt="Elite Matrimony" class="grayscale group-hover:grayscale-0 transition duration-1000">
+                    <div class="absolute inset-0 bg-black/30"></div>
+                </div>
+                <div class="p-10 md:p-20 flex flex-col justify-center border-l border-gray-900 bg-[#0a0a0a]">
+                    <span class="text-[#d4af37] text-xs uppercase tracking-widest mb-4">0-to-1 Launch</span>
+                    <h3 class="text-4xl serif mb-6">Elite Matrimony</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed">Premium matchmaking platform launched from 0-to-1 with AI-powered recommendations. Established premium vertical driving substantial ARPU growth.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div><p class="text-white text-xl serif">40%</p><span class="text-xs text-gray-600 uppercase">ARPU Increase</span></div>
+                        <div><p class="text-white text-xl serif">3K+</p><span class="text-xs text-gray-600 uppercase">Initial Users</span></div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">System Design</span>
+                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">B2C Platform</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-0 border-b border-gray-900 group">
+                <div class="p-10 md:p-20 flex flex-col justify-center border-r border-gray-900 bg-[#0a0a0a] order-2 md:order-1">
+                    <span class="text-[#d4af37] text-xs uppercase tracking-widest mb-4">Automation & ML</span>
+                    <h3 class="text-4xl serif mb-6">AI Moderation System</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed">End-to-end AI-powered content moderation for photos and government IDs using OCR and ML models.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div><p class="text-white text-xl serif">95%</p><span class="text-xs text-gray-600 uppercase">Time Saved</span></div>
+                        <div><p class="text-white text-xl serif">45%</p><span class="text-xs text-gray-600 uppercase">Quality Up</span></div>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Computer Vision</span>
+                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Python</span>
+                    </div>
+                </div>
+                <div class="h-[60vh] img-container bg-gray-900 overflow-hidden relative order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=2832&auto=format&fit=crop" alt="AI System" class="grayscale group-hover:grayscale-0 transition duration-1000">
+                    <div class="absolute inset-0 bg-black/30"></div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 border-b border-gray-900">
+                <div class="p-10 border-r border-gray-900 hover:bg-[#111] transition duration-300">
+                    <h4 class="text-xl serif mb-4">Customer Data Platform</h4>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">Growth • Analytics</p>
+                    <p class="text-sm text-gray-400">Multi-channel CDP enabling personalized campaigns across 7 channels. 35% Engagement Uplift.</p>
+                </div>
+                <div class="p-10 border-r border-gray-900 hover:bg-[#111] transition duration-300">
+                    <h4 class="text-xl serif mb-4">Ad Booking Platform</h4>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">Revenue • B2C</p>
+                    <p class="text-sm text-gray-400">Self-serve platform for The Telegraph. Recaptured 15% revenue and processed 5K+ monthly orders.</p>
+                </div>
+                <div class="p-10 hover:bg-[#111] transition duration-300">
+                    <h4 class="text-xl serif mb-4">eWards Restaurant Platform</h4>
+                    <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">SaaS • Integration</p>
+                    <p class="text-sm text-gray-400">White-label loyalty platform serving 12+ brands. 42% increase in repeat purchase rate.</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 border-b border-gray-900">
+                <div class="p-10 border-r border-gray-900 hover:bg-[#111] transition duration-300">
+                    <h4 class="text-xl serif mb-2">HRMS Platform</h4>
+                    <p class="text-xs text-gray-500 mb-2">Full Stack • Vibe Coded</p>
+                    <p class="text-xs text-gray-400">Employee management for 300+ staff.</p>
+                </div>
+                <div class="p-10 border-r border-gray-900 hover:bg-[#111] transition duration-300">
+                    <h4 class="text-xl serif mb-2">Analytics Dashboard</h4>
+                    <p class="text-xs text-gray-500 mb-2">Visualization • Data</p>
+                    <p class="text-xs text-gray-400">Real-time data viz, 90% faster reporting.</p>
+                </div>
+                <div class="p-10 hover:bg-[#111] transition duration-300">
+                    <h4 class="text-xl serif mb-2">ABPweddings UI</h4>
+                    <p class="text-xs text-gray-500 mb-2">Design • UX</p>
+                    <p class="text-xs text-gray-400">Revamp led to 20% better engagement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 px-6 md:px-20 bg-black">
+            <h2 class="text-sm uppercase tracking-[0.3em] mb-12 text-gray-500">Technical Arsenal</h2>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-2xl serif text-[#d4af37] mb-6">Strategy</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm tracking-wide">
+                        <li>0-to-1 Launches</li>
+                        <li>Product Roadmap</li>
+                        <li>Stakeholder Management</li>
+                        <li>Agile / Scrum</li>
+                        <li>Growth Strategy</li>
+                        <li>User Research & A/B Testing</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl serif text-[#d4af37] mb-6">Technical Architecture</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm tracking-wide">
+                        <li>AWS (S3, EC2, API Gateway)</li>
+                        <li>SQL / NoSQL (MySQL, Mongo, Redis)</li>
+                        <li>Python (Data & Automation)</li>
+                        <li>Node.js / JavaScript</li>
+                        <li>Elasticsearch / OpenSearch</li>
+                        <li>API Integrations</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-2xl serif text-[#d4af37] mb-6">Tools</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm tracking-wide">
+                        <li>Jira & Confluence</li>
+                        <li>Figma & Whimsical</li>
+                        <li>Google Analytics</li>
+                        <li>Postman</li>
+                        <li>WebEngage</li>
+                        <li>Excel & Appscript</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-20 px-6 md:px-20 border-t border-gray-900">
+            <div class="grid md:grid-cols-12 gap-10">
+                <div class="md:col-span-4">
+                    <h2 class="text-4xl serif">Education</h2>
+                </div>
+                <div class="md:col-span-8 space-y-12">
+                    <div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">Product Management Fellowship</h3>
+                            <span class="text-xs text-gray-500">Ongoing</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-2">NextLeap</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">16 week cohort focused on building product strategy, user research, and data-driven decision making.</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">B.Sc in Data Science</h3>
+                            <span class="text-xs text-gray-500">2018 - 2021</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-2">Techno India University, Kolkata</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Silver Medalist (Rank 2). First student in batch to secure placement. Represented University in state-level debates (Won GST Dept of India debate).</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">SQL (Intermediate) Certification</h3>
+                            <span class="text-xs text-gray-500">2021</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">HackerRank</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Mastery in complex joins, sub-queries and data retrieval strategies.</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold">Crash Course on Python</h3>
+                            <span class="text-xs text-gray-500">2020</span>
+                        </div>
+                        <p class="text-gray-400 text-sm">Google (Coursera)</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Automation strategy, functional programming, and data structure management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations" class="py-24 bg-[#0c0c0c]">
+            <div class="px-6 md:px-20">
+                <h2 class="text-sm uppercase tracking-widest text-gray-500 mb-12">Endorsements</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"Young, enthusiastic and a keen learner who can be trusted with innovative and challenging projects. He's the man to go to for your data management and product solutions."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+                                <img src="https://ui-avatars.com/api/?name=Karishma+Pal&background=random" alt="K" class="w-full h-full object-cover">
                             </div>
-                        </ul>
-                        <button class="read-more-btn" onclick="toggleReadMore(this)">
-                            <span>Read More</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="experience-card reveal">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-title">Product Manager</h3>
-                            <p class="experience-company">ABPweddings (ABP Group)</p>
-                        </div>
-                        <span class="experience-date">Sep 2022 - Mar 2024</span>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Built Customer Data Platform with segmentation engine, enabling personalized campaigns
-                                across 7 channels improving user engagement by 35% and decreasing operational cost by
-                                more than 50%</li>
-                            <li>Planned and launched Match by Hobbies feature with Ashtakoot compatibility matching,
-                                increasing profile engagement by 28%</li>
-                            <div class="more-content" style="display: none;">
-                                <li>Revamped the UI of the ABPweddings platform, improving user experience and
-                                    engagement by 20%</li>
-                                <li>Integrated Appsflyer with deep linking capabilities, optimizing user retention by
-                                    22%</li>
-                            </div>
-                        </ul>
-                        <button class="read-more-btn" onclick="toggleReadMore(this)">
-                            <span>Read More</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="experience-card reveal">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-title">Project Manager</h3>
-                            <p class="experience-company">Codebuddy Pvt Ltd</p>
-                        </div>
-                        <span class="experience-date">Apr 2022 - Sep 2022</span>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li>Delivered insurance comparison website for Quotelion, integrating 15+ insurance
-                                providers and
-                                processing 10,000+ quote requests monthly with 99.5% uptime</li>
-                            <li>uilt advertisement booking platform for Adarth, streamlining space reservation workflow
-                                and
-                                reducing booking time by 60%.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="experience-card reveal">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-title">Product Manager</h3>
-                            <p class="experience-company">eWards</p>
-                        </div>
-                        <span class="experience-date">Oct 2020 - Mar 2022</span>
-                    </div>
-                    <div class="experience-description">
-                        <ul>
-                            <li> Designed and launched white-label app solution deployed across 12+ restaurant brands,
-                                serving
-                                50,000+ monthly active users</li>
-                            <li>Built end-to-end Order Management System handling 100,000+ orders monthly with automated
-                                workflow and real-time tracking</li>
-                            <div class="more-content" style="display: none;">
-                                <li>Developed Rewards and Loyalty Platform with gamification features, increasing repeat
-                                    purchase rate
-                                    by 42% and customer lifetime value by 35%</li>
-                                <li> Integrated Facebook, Instagram, WhatsApp, and POS systems (Petpooja, Posist
-                                    Technologies, Ginesys,
-                                    Shopify, Gofrugal) to create unified omnichannel experience, improving operational
-                                    efficiency by 38%
-                                </li>
-                                <li>Implemented customer feedback system with sentiment analysis, achieving 65% response
-                                    rate and
-                                    4.2/5 average satisfaction score</li>
-                            </div>
-                        </ul>
-                        <button class="read-more-btn" onclick="toggleReadMore(this)">
-                            <span>Read More</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education" style="background: var(--light);">
-        <div class="container" style="width: 100%;">
-            <h2 class="section-title">Education</h2>
-            <div class="experience-grid">
-
-                <div class="experience-card reveal">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-title">Bachelor of Science in Data Science</h3>
-                            <p class="experience-company">Techno India University, Kolkata</p>
-                        </div>
-                        <span class="experience-date">2018 - 2021</span>
-                    </div>
-                    <div class="experience-description">
-                        <p><strong>Academic Excellence:</strong> Secured <strong>Silver Medal</strong> (Rank 2 among
-                            700+ students) for consistent academic performance.</p>
-
-                        <ul style="margin-top: 1rem;">
-                            <li><strong>Technical Foundation:</strong> Proficient in Data Structures & Analytics,
-                                including SQL/NoSQL Database Management, System Design, APIs and Statistical Modeling
-                                for data-driven decision making.</li>
-                            <li><strong>Early Career Milestone:</strong> Achieved the distinction of being the
-                                <strong>first student in the batch</strong> to secure a professional placement by the
-                                4th semester, demonstrating high industry readiness.
-                            </li>
-                            <li><strong>Leadership & Communication:</strong> Represented the University in state-level
-                                debates; won 1st prize in the <strong>GST Department of India</strong> debate
-                                competition, showcasing strong stakeholder management and articulation skills.</li>
-                            <li><strong>Competitive Programming:</strong> Awarded <strong>1st Runner-up</strong> in the
-                                inter-University Coding Hackathon, proving excellence in rapid prototyping and logical
-                                problem-solving.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="experience-card reveal">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-title">SQL (Intermediate) Professional Certification</h3>
-                            <p class="experience-company">HackerRank</p>
-                        </div>
-                        <span class="experience-date">2021</span>
-                    </div>
-
-                    <div class="experience-description"
-                        style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1rem;">
-
-                        <div class="experience-info-left" style="flex: 1;">
-                            <p><strong>Technical Mastery:</strong> Validated expertise in solving complex data retrieval
-                                challenges, essential for independent product performance analysis.</p>
-                            <ul style="margin-top: 1rem;">
-                                <li><strong>Advanced Querying:</strong> Proficient in <strong>Complex Joins, Unions, and
-                                        Multi-level Sub-queries</strong>.</li>
-                                <li><strong>Data Strategy:</strong> Ability to independently translate raw database
-                                    schemas into actionable business insights.</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-cert-right" style="flex: 0 0 220px;">
-                            <a href="https://www.hackerrank.com/certificates/e84c770f53a5" target="_blank"
-                                style="text-decoration: none;">
-                                <div
-                                    style="position: relative; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease; background: #fff;">
-                                    <img src="hackerrank.png" alt="HackerRank SQL Certificate"
-                                        style="width: 100%; max-width: 450px; display: block; padding: 10px;">
-
-                                    <div
-                                        style="background: rgba(15, 23, 42, 0.8); color: white; text-align: center; padding: 5px; font-size: 0.75rem; font-weight: 600;">
-                                        View Certificate <i class="fas fa-external-link-alt"
-                                            style="font-size: 0.65rem; margin-left: 4px;"></i>
-                                    </div>
-                                </div>
-                            </a>
-                            <p style="font-size: 0.75rem; color: var(--gray); text-align: center; margin-top: 8px;">
-                                Verified Professional ID: e84c770f53a5
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-card reveal">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-title">Crash Course on Python</h3>
-                            <p class="experience-company">Google Career Certificates (Coursera)</p>
-                        </div>
-                        <span class="experience-date">2020</span>
-                    </div>
-
-                    <div class="experience-description"
-                        style="display: flex; gap: 2rem; align-items: flex-start; margin-top: 1rem;">
-
-                        <div class="experience-info-left" style="flex: 1;">
-                            <p><strong>Automation Strategy:</strong> Specialized in leveraging Python to streamline
-                                product operations and automate high-frequency manual workflows to drive team
-                                efficiency.</p>
-                            <ul style="margin-top: 1rem;">
-                                <li><strong>Functional Programming:</strong> Proficient in writing modular Python
-                                    scripts using advanced data structures (<strong>Strings, Lists, and
-                                        Dictionaries</strong>) to manage complex product data.</li>
-                                <li><strong>Workflow Automation:</strong> Skilled in identifying automation
-                                    opportunities within the product lifecycle to perform automated actions, reducing
-                                    human error and operational lag.</li>
-                                <li><strong>Data Architecture:</strong> Strong understanding of Python’s role in modern
-                                    automation ecosystems, facilitating better technical requirements gathering for
-                                    engineering teams.</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-cert-right" style="flex: 0 0 220px;">
-                            <a href="https://www.coursera.org/account/accomplishments/verify/F6WN3AVL8X93"
-                                target="_blank" style="text-decoration: none;">
-                                <div class="cert-card-hover"
-                                    style="position: relative; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; background: #fff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-                                    <div
-                                        style="background: #f8fafc; padding: 25px 10px; display: flex; justify-content: center; align-items: center;">
-                                        <img src="google.JPG" alt="Google Python Certificate"
-                                            style="width: 100%; max-width: 450px; display: block; padding: 10px;">
-                                    </div>
-
-                                    <div
-                                        style="background: #4285F4; color: white; text-align: center; padding: 8px; font-size: 0.75rem; font-weight: 600;">
-                                        View Certificate <i class="fas fa-external-link-alt"
-                                            style="font-size: 0.65rem; margin-left: 4px;"></i>
-                                    </div>
-                                </div>
-                            </a>
-                            <p style="font-size: 0.75rem; color: var(--gray); text-align: center; margin-top: 10px;">
-                                <i class="fab fa-google" style="color: #4285F4;"></i> Verified by Google
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Skills and Tools</h2>
-            <div class="skills-grid">
-                <div class="skill-category reveal">
-                    <h3><i class="fas fa-chess-knight"></i> Strategy & Leadership</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">0-to-1 Launches</span>
-                        <span class="skill-item">Product Roadmap</span>
-                        <span class="skill-item">Stakeholder Management</span>
-                        <span class="skill-item">Feature Prioritization</span>
-                        <span class="skill-item">Agile / Scrum</span>
-                        <span class="skill-item">Growth Strategy</span>
-                    </div>
-                </div>
-
-                <div class="skill-category reveal">
-                    <h3><i class="fas fa-vials"></i> Product Ops & Design</h3>
-                    <div class="skill-items">
-                        <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg">
-                            Jira</span>
-                        <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg">
-                            Confluence</span>
-                        <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
-                            Figma</span>
-                        <span class="skill-item">
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" />
-                            Postman</span>
-                        <span class="skill-item">
-                            <img src="https://img.icons8.com/?size=100&id=11238&format=png&color=000000" />
-                            Whimsical</span>
-                        <span class="skill-item"><i class="fas fa-project-diagram"></i> Draw.io</span>
-                        <span class="skill-item">
-                            <img src="https://img.icons8.com/?size=100&id=XCww9HPskKrl&format=png&color=000000" />
-                            A/B Testing</span>
-                        <span class="skill-item"><i class="fas fa-users-viewfinder"></i> User Research</span>
-                    </div>
-                </div>
-
-                <div class="skill-category reveal">
-                    <h3><i class="fas fa-chart-pie"></i> Analytics & Growth</h3>
-                    <div class="skill-items">
-                        <span class="skill-item"><img
-                                src="https://img.icons8.com/?size=100&id=lIzGTzIFMKym&format=png&color=000000">
-                            Google Analytics</span>
-                        <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
-                            MySQL</span>
-                        <span class="skill-item">
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" />
-                            PostgreSQL</span>
-                        <span class="skill-item"><img
-                                src="https://img.icons8.com/?size=100&id=JChkA69vF7Lo&format=png&color=000000">
-                            Excel & Appscript</span>
-                        <span class="skill-item"><i class="fas fa-paper-plane"></i> WebEngage</span>
-
-                    </div>
-                </div>
-
-                <div class="skill-category reveal">
-                    <h3><i class="fas fa-layer-group"></i> Technical Architecture</h3>
-                    <div class="skill-items">
-                        <span class="skill-item"><img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg">
-                            AWS (S3, EC2, API Gateway)</span>
-                        <span class="skill-item">
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg">
-                            Elasticsearch / OpenSearch
-                        </span>
-                        <span class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg">
-                            Redis
-                        </span>
-                        <span class="skill-item"><i class="fas fa-plug"></i> API Integrations</span>
-                        <span class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
-                            MongoDB / DynamoDB
-                        </span>
-                        <span class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
-                            Node.js
-                        </span>
-                        <span class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
-                            Python
-                        </span>
-                        <span class="skill-item">
-                            <img
-                                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
-                            JavaScript
-                        </span>
-                        <span class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
-                            HTML
-                        </span>
-                        <span class="skill-item">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
-                            CSS
-                        </span>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Key Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-crown"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Elite Matrimony</h3>
-                        <p class="project-description">Premium matchmaking platform launched from 0-to-1 with AI-powered
-                            recommendations and custom architecture</p>
-                        <div class="project-tags">
-                            <span class="tag">0-to-1 Launch</span>
-                            <span class="tag">B2C Platform</span>
-                            <span class="tag">System Design</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>40%</strong> ARPU Increase</div>
-                            <div class="metric"><strong>3K+</strong> Users</div>
-                        </div>
-                        <!-- <a href="#case-study-elite" class="btn btn-primary"
-                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Case Study <i
-                                class="fas fa-arrow-right"></i></a> -->
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-robot"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">AI Moderation System</h3>
-                        <p class="project-description">End-to-end AI-powered content moderation for photos and
-                            government IDs using OCR and ML models</p>
-                        <div class="project-tags">
-                            <span class="tag">AI/ML</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">OCR</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>70%</strong> Time Saved</div>
-                            <div class="metric"><strong>45%</strong> Quality Up</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-database"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Customer Data Platform</h3>
-                        <p class="project-description">Multi-channel CDP enabling personalized campaigns across 7
-                            channels with advanced segmentation</p>
-                        <div class="project-tags">
-                            <span class="tag">B2B + B2C</span>
-                            <span class="tag">Automation</span>
-                            <span class="tag">Growth</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>35%</strong> Engagement Up</div>
-                            <div class="metric"><strong>7</strong> Channels</div>
-                        </div>
-                        <!-- <a href="#case-study-cdp" class="btn btn-primary"
-                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Case Study <i
-                                class="fas fa-arrow-right"></i></a> -->
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-users-cog"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">HRMS Platform</h3>
-                        <p class="project-description">Full-stack HRMS solution built with Node.js serving entire
-                            organization for employee management</p>
-                        <div class="project-tags">
-                            <span class="tag">Full-Stack</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Vide Coded</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>300+</strong> Employees</div>
-                            <div class="metric"><strong>50%</strong> Time Saved</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-newspaper"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Ad Booking Platform</h3>
-                        <p class="project-description">Self-serve platform for The Telegraph & Anandabazar Patrika
-                            eliminating third-party dependency</p>
-                        <div class="project-tags">
-                            <span class="tag">Disintermediation</span>
-                            <span class="tag">B2C</span>
-                            <span class="tag">Revenue</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>15%</strong> Revenue Recaptured</div>
-                            <div class="metric"><strong>5K+</strong> Monthly Orders</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-chart-line"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">Analytics Dashboard</h3>
-                        <p class="project-description">Excel-to-Dashboard tool for real-time data visualization enabling
-                            faster business decisions</p>
-                        <div class="project-tags">
-                            <span class="tag">Analytics</span>
-                            <span class="tag">Dashboard</span>
-                            <span class="tag">Vide Coded</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>90%</strong> Faster Reports</div>
-                            <div class="metric"><strong>10 min</strong> vs 2 hours</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-heart"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">ABPweddings Platform</h3>
-                        <p class="project-description">End-to-end matrimony platform features including AI matching, CRM
-                            automation, and growth initiatives</p>
-                        <div class="project-tags">
-                            <span class="tag">10M+ Users</span>
-                            <span class="tag">B2C</span>
-                            <span class="tag">CRM</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>10+</strong> Features</div>
-                            <div class="metric"><strong>28%</strong> Engagement Up</div>
-                        </div>
-                        <!-- <a href="#case-study-abpweddings" class="btn btn-primary"
-                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Features <i
-                                class="fas fa-arrow-right"></i></a> -->
-                    </div>
-                </div>
-                <div class="project-card reveal">
-                    <div class="project-image"><i class="fas fa-store"></i></div>
-                    <div class="project-content">
-                        <h3 class="project-title">eWards Restaurant Platform</h3>
-                        <p class="project-description">White-label ordering and loyalty platform serving 12+ restaurant
-                            brands with POS integrations</p>
-                        <div class="project-tags">
-                            <span class="tag">White-label</span>
-                            <span class="tag">B2B SaaS</span>
-                            <span class="tag">Integrations</span>
-                        </div>
-                        <div class="project-metrics">
-                            <div class="metric"><strong>50K+</strong> MAU</div>
-                            <div class="metric"><strong>42%</strong> Repeat Rate</div>
-                        </div>
-                        <!-- <a href="#case-study-ewards" class="btn btn-primary"
-                            style="margin-top: 1rem; font-size: 0.9rem; padding: 0.5rem 1rem;">View Features <i
-                                class="fas fa-arrow-right"></i></a> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="recommendations">
-        <div class="container">
-            <h2 class="section-title">Recommendations</h2>
-            <div class="recommendation-grid reveal">
-                <div class="recommendation-card">
-                    <div>
-                        <i class="fas fa-quote-left"
-                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
-                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
-                            "Young, enthusiastic and a keen learner who can be trusted with innovative and challenging
-                            projects. He's the man to go to for your data management, data science and product related
-                            solutions."
-                        </p>
-                    </div>
-                    <div class="rec-author"
-                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
-                        <img src="https://media.licdn.com/dms/image/v2/C4D03AQFlVKwVttu9EQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1663783554826?e=1769644800&v=beta&t=eTr05tjhZLWWCWQIYVHqsHaz1KT4k6H763qrsBULeAY"
-                            alt="Karishma Pal"
-                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        <div class="rec-info">
-                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
-                                Karishma Pal
-                                <a href="https://www.linkedin.com/in/karishmapal7/" target="_blank"
-                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
-                            </h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">Sr. Account Executive,
-                                LinkedIn</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="recommendation-card">
-                    <div>
-                        <i class="fas fa-quote-left"
-                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
-                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
-                            "I have had the pleasure of working closely with Sayan, and I can confidently say he is an
-                            exceptional Product Manager who consistently bridges the gap between business vision,
-                            customer needs, and execution..."
-                        </p>
-                    </div>
-                    <div class="rec-author"
-                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQHCQq5r7Ksapw/profile-displayphoto-scale_100_100/B56ZjqlEBaHMAk-/0/1756282243038?e=1769644800&v=beta&t=1O0_8z6fI84jE1nFdNhmA8le9ky0fiADPAmomr5DNxY"
-                            alt="Santosh Kumar Das"
-                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        <div class="rec-info">
-                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
-                                Santosh Kumar Das
-                                <a href="https://www.linkedin.com/in/santosh-kumar-das-1041421a/" target="_blank"
-                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
-                            </h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">QA Lead, ABPweddings</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="recommendation-card">
-                    <div>
-                        <i class="fas fa-quote-left"
-                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
-                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
-                            "I worked closely with Sayan, where he played a key role in effectively bridging clients and
-                            the development team. He consistently demonstrated a strong understanding of client
-                            requirements and translated them into clear, actionable inputs for developers, enabling
-                            smooth and efficient collaboration. Sayan managed task tracking and scrums with discipline,
-                            kept priorities well aligned, and handled scope and timeline changes pragmatically as
-                            requirements evolved. His clear communication, proactive mindset, and focus on outcomes
-                            contributed to tangible product improvements and higher client satisfaction, and he is a
-                            dependable, genuinely pleasant colleague to work with."
-                        </p>
-                    </div>
-                    <div class="rec-author"
-                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQF3pnGvvwOxaw/profile-displayphoto-scale_400_400/B56ZrTqLYdHAAg-/0/1764487643644?e=1769644800&v=beta&t=jtk9KCa7yOHtf1UuCRr3UtSuNvSRZaWHMefq1BkvzA4"
-                            alt="Manish Gupta"
-                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        <div class="rec-info">
-                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
-                                Manish Gupta
-                                <a href="https://www.linkedin.com/in/manish-gupta-82b449242/" target="_blank"
-                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
-                            </h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">Sr. Software Developer,
-                                Ericsson</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="recommendation-card">
-                    <div>
-                        <i class="fas fa-quote-left"
-                            style="color: var(--primary); font-size: 2rem; opacity: 0.2; margin-bottom: 1rem; display: block;"></i>
-                        <p class="rec-text" style="font-style: italic; color: var(--gray); line-height: 1.7;">
-                            "Sayan is very hard working professional. He is known for his perfection and dedication
-                            towards his work. He is very helpful and has been taking up new challenges since day one."
-                        </p>
-                    </div>
-                    <div class="rec-author"
-                        style="display: flex; align-items: center; gap: 15px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;">
-                        <img src="https://media.licdn.com/dms/image/v2/C5103AQF-I75FbUa0Bw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1554052350445?e=1769644800&v=beta&t=Hmif0yBh_va3roIxmN7825XkMCYe2UE4zl_Dzv4QQ4E"
-                            alt="Sakshi Bagri"
-                            style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        <div class="rec-info">
-                            <h4 style="margin: 0; display: flex; align-items: center; gap: 8px;">
-                                Sakshi Bagri
-                                <a href="https://linkedin.com/in/sakshi-bagri-558a44183" target="_blank"
-                                    class="linkedin-link"><i class="fab fa-linkedin"></i></a>
-                            </h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: var(--gray);">Sr. Customer Success Manager,
-                                Rocketium</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="beyond" style="background: var(--light);">
-        <div class="container">
-            <h2 class="section-title">Beyond the Desk</h2>
-            <div class="hobby-grid">
-
-                <div class="hobby-card reveal">
-                    <div class="hobby-icon-wrapper">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Founder, I Love Difference</h3>
-                    <p>Founded a non-profit in 2017 dedicated to street children in Kolkata. Successfully impacted
-                        <strong>4,000+ children</strong> through food and clothing drives during major festivals.
-                    </p>
-                    <span class="hobby-tag">Social Impact</span>
-                </div>
-
-                <div class="hobby-card reveal">
-                    <div class="hobby-icon-wrapper">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>AI & Gen-Labs</h3>
-                    <p>Passionately explore emerging tech by building <strong>Custom GPTs</strong> and automation
-                        workflows. Constantly experimenting with LLMs to solve micro-productivity challenges.</p>
-                    <span class="hobby-tag">Tech Enthusiast</span>
-                </div>
-
-                <div class="hobby-card reveal">
-                    <div class="hobby-icon-wrapper">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Finance & Freedom</h3>
-                    <p>Active <strong>investment enthusiast</strong> focused on Equity and Mutual Fund markets. When not
-                        analyzing charts, I’m exploring the countryside on <strong>long-distance bike rides</strong>.
-                    </p>
-                    <span class="hobby-tag">Strategy & Travel</span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content reveal">
-                <div class="contact-info" style="display: flex; flex-direction: column; align-items: flex-start;">
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.8; max-width: 450px;">
-                        Interested in working together? I'd love to hear about your product challenges and explore how
-                        we can create impact together.
-                    </p>
-                    <a href="mailto:sayan.adhikary.work@gmail.com" class="btn btn-primary"
-                        style="padding: 0.8rem 1.5rem; font-size: 0.95rem; width: auto; min-width: 180px; justify-content: center;">
-                        Send Message <i class="fas fa-paper-plane"></i>
-                    </a>
-                </div>
-
-                <div class="contact-details-wrapper">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>sayan.adhikary.work@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item" style="margin-top: 1.5rem;">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91-9748772134</p>
-                        </div>
-                    </div>
-
-                    <a href="https://linkedin.com/in/sayan-product" target="_blank"
-                        style="text-decoration: none; color: inherit;">
-                        <div class="contact-item" style="margin-top: 1.5rem;">
-                            <i class="fab fa-linkedin-in"></i>
                             <div>
-                                <h4>LinkedIn</h4>
-                                <p>5,000+ Connections</p>
+                                <p class="text-sm font-bold text-white">Karishma Pal</p>
+                                <p class="text-xs text-gray-500">Sr. Account Executive, LinkedIn</p>
                             </div>
                         </div>
-                    </a>
+                    </div>
+
+                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"Sayan played a key role in effectively bridging clients and the development team... clearly translated requirements into actionable inputs. A dependable, genuinely pleasant colleague."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+                                <img src="https://ui-avatars.com/api/?name=Manish+Gupta&background=random" alt="M" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Manish Gupta</p>
+                                <p class="text-xs text-gray-500">Sr. Software Developer, Ericsson</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"An exceptional Product Manager who consistently bridges the gap between business vision, customer needs, and execution."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+                                <img src="https://ui-avatars.com/api/?name=Santosh+Das&background=random" alt="S" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Santosh Kumar Das</p>
+                                <p class="text-xs text-gray-500">QA Lead, ABPweddings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"Sayan is very hard working professional. He is known for his perfection and dedication towards his work. He is very helpful and has been taking up new challenges since day one."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+                                <img src="https://ui-avatars.com/api/?name=Santosh+Das&background=random" alt="S" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Sakshi Bagri</p>
+                                <p class="text-xs text-gray-500">Sr. Customer Success Manager,Rocketium</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 Sayan Adhikary. All rights reserved. | Built with passion for great products</p>
-    </footer>
+        <section id="beyond" class="py-24 px-6 md:px-20 border-t border-gray-900">
+            <h2 class="text-4xl serif mb-12 text-center">Beyond The Desk</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 hover-trigger">
+                    <div class="mb-4 text-[#d4af37] text-2xl">❤</div>
+                    <h4 class="text-lg font-bold mb-2">Founder, I Love Difference</h4>
+                    <p class="text-xs text-gray-500 uppercase mb-4">Social Impact</p>
+                    <p class="text-sm text-gray-400">Founded a non-profit in 2017. Impacted 4,000+ street children in Kolkata through food and clothing drives.</p>
+                </div>
+                <div class="p-6 hover-trigger">
+                    <div class="mb-4 text-[#d4af37] text-2xl">⚡</div>
+                    <h4 class="text-lg font-bold mb-2">AI & Gen-Labs</h4>
+                    <p class="text-xs text-gray-500 uppercase mb-4">Tech Enthusiast</p>
+                    <p class="text-sm text-gray-400">Building Custom GPTs and automation workflows. Experimenting with LLMs for micro-productivity.</p>
+                </div>
+                <div class="p-6 hover-trigger">
+                    <div class="mb-4 text-[#d4af37] text-2xl">📈</div>
+                    <h4 class="text-lg font-bold mb-2">Finance & Freedom</h4>
+                    <p class="text-xs text-gray-500 uppercase mb-4">Strategy & Travel</p>
+                    <p class="text-sm text-gray-400">Active investor in Equity/Mutual Funds. Exploring the countryside on long-distance bike rides.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="min-h-screen flex flex-col justify-between p-6 md:p-20 relative bg-black">
+            <div>
+                <h2 class="text-[12vw] leading-none uppercase mix-blend-difference mb-8 text-white opacity-90">
+                    Get In <br> <span class="text-[#333]">Touch</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 border-t border-gray-800 pt-12">
+                <div>
+                    <p class="text-gray-400 max-w-sm mb-8 text-sm">
+                        Interested in working together? I'd love to hear about your product challenges and explore how we can create impact together.
+                    </p>
+                    <a href="mailto:sayan.adhikary.work@gmail.com" class="hover-trigger text-xl md:text-3xl border-b border-gray-700 hover:border-[#d4af37] pb-2 inline-block transition text-white">
+                        sayan.adhikary.work@gmail.com
+                    </a>
+                    <p class="mt-4 text-gray-500">+91-9748772134</p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 text-xs uppercase tracking-widest text-gray-500">
+                    <div>
+                        <h4 class="text-white mb-4">Connect</h4>
+                        <ul class="space-y-4">
+                            <li><a href="https://linkedin.com/in/sayan-product" target="_blank" class="hover-trigger hover:text-[#d4af37] transition">LinkedIn</a></li>
+                            <li><a href="mailto:sayan.adhikary.work@gmail.com" target="_blank" class="hover-trigger hover:text-[#d4af37] transition">Email</a></li>
+                            <!-- <li><a href="https://github.com/sayan-adhikary-23" target="_blank" class="hover-trigger hover:text-[#d4af37] transition">GitHub</a></li> -->
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-white mb-4">Status</h4>
+                        <p>Open for Opportunities</p>
+                        <p class="mt-2 text-[#d4af37]">Resume Available on Request</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center text-[10px] text-gray-700 uppercase tracking-widest">
+                &copy; 2026 Sayan Adhikary. All rights reserved. Built with ❤️ for great products
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 
     <script>
+        // Smooth Scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true,
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
 
-        const slider = document.querySelector('.recommendation-grid');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        let autoScrollTimer;
+        gsap.registerPlugin(ScrollTrigger);
 
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-menu');
+        // --- LOADER ANIMATION SEQUENCE ---
+const tl = gsap.timeline();
 
-        // Toggle Menu
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            // Toggle between bars and 'X' icon
-            const icon = mobileMenu.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+// 1. Counter Animation (0 to 100)
+let progressObj = { value: 0 };
+tl.to(progressObj, {
+    value: 100,
+    duration: 2.5,
+    ease: "power2.inOut",
+    onUpdate: function() {
+        document.querySelector(".loader-count").textContent = Math.round(progressObj.value) + "%";
+    }
+})
+
+// 2. Fade out the small loader text
+.to(".loader-text", {
+    opacity: 0,
+    duration: 0.5
+}, "-=0.5")
+
+// 3. Slide the black curtain UP
+.to(".loader-overlay", {
+    y: "-100%",
+    duration: 1.2,
+    ease: "power4.inOut"
+})
+
+// 4. Fade in Nav and reveal Hero Text
+.to("nav", { opacity: 1, duration: 1 }, "-=0.8")
+.to(".reveal-text", {
+    y: 0,
+    stagger: 0.2,
+    duration: 1.5,
+    ease: "power4.out",
+    onComplete: () => {
+        // Unlock scrolling once the animation is done
+        document.body.style.overflow = "auto";
+        document.body.style.height = "auto";
+    }
+}, "-=0.8")
+.to(".hero-fade", { opacity: 1, y: 0, duration: 1, stagger: 0.2 }, "-=1.2");
+
+        
+
+        // Cursor
+        const cursor = document.querySelector('.cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+        });
+        document.querySelectorAll('.hover-trigger, a, button').forEach(link => {
+            link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
         });
 
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = mobileMenu.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
+        // Scroll Progress
+        gsap.to(".progress-bar", {
+            width: "100%",
+            ease: "none",
+            scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: true }
+        });
+
+        // Parallax Images
+        document.querySelectorAll(".img-container img").forEach(img => {
+            gsap.to(img, {
+                yPercent: 15,
+                ease: "none",
+                scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true }
             });
         });
 
-        // --- 1. MOUSE DRAG LOGIC ---
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active');
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-            stopAutoScroll(); // Pause auto-scroll when user interacts
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            startAutoScroll(); // Resume when mouse leaves
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            startAutoScroll(); // Resume after click release
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // Scroll speed multiplier
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        // --- 2. AUTO-SCROLL LOGIC ---
-        function startAutoScroll() {
-            stopAutoScroll();
-            autoScrollTimer = setInterval(() => {
-                const maxScroll = slider.scrollWidth - slider.clientWidth;
-
-                if (slider.scrollLeft >= maxScroll - 10) {
-                    slider.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    // DYNAMIC: Scroll by the width of the first card found
-                    const cardWidth = document.querySelector('.recommendation-card').offsetWidth;
-                    const gap = 32; // This is your 2rem gap
-                    slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-                }
-            }, 5000);
-        }
-
-        function stopAutoScroll() {
-            clearInterval(autoScrollTimer);
-        }
-
-        // Start on load
-        startAutoScroll();
-
-        // Stop on hover, Start on leave
-        slider.addEventListener('mouseenter', stopAutoScroll);
-        function toggleReadMore(btn) {
-            const parent = btn.closest('.experience-description');
-            const moreContent = parent.querySelector('.more-content');
-            const btnText = btn.querySelector('span');
-
-            // Toggle active state
-            btn.classList.toggle('active');
-
-            if (moreContent.classList.contains('show')) {
-                moreContent.classList.remove('show');
-                // Small timeout to allow the fade-out animation before hiding
-                setTimeout(() => { moreContent.style.display = 'none'; }, 400);
-                btnText.textContent = 'Read More';
-            } else {
-                moreContent.style.display = 'block';
-                // Small timeout to trigger the CSS transition
-                setTimeout(() => { moreContent.classList.add('show'); }, 10);
-                btnText.textContent = 'Read Less';
-            }
-        }
-        // Scroll Reveal
-        function reveal() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-                    el.classList.add('active');
-                }
+        // Fade In Elements
+        gsap.utils.toArray("section h2, section h3, .project-card").forEach(elem => {
+            gsap.from(elem, {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                scrollTrigger: { trigger: elem, start: "top 85%" }
             });
-        }
-
-        // Counter Animation
-        const statsSection = document.getElementById('about');
-        let counterStarted = false;
-
-        function startCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const increment = target / 50;
-                let current = 0;
-
-                const updateCount = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.innerText = current.toFixed(target % 1 === 0 ? 0 : 1) + (target === 40 ? '%' : target === 5.5 ? '+' : '');
-                        setTimeout(updateCount, 20);
-                    } else {
-                        counter.innerText = target + (target === 40 ? '%' : target === 5.5 ? '+' : '');
-                    }
-                };
-                updateCount();
-            });
-        }
-
-        window.addEventListener('scroll', () => {
-            reveal();
-            if (!counterStarted && statsSection.getBoundingClientRect().top < window.innerHeight) {
-                startCounters();
-                counterStarted = true;
-            }
         });
 
-        reveal();
+        
     </script>
 </body>
-
 </html>
