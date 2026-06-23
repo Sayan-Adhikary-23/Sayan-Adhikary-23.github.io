@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sayan Adhikary | Senior Product Manager</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <style>
         :root {
             --bg-color: #080808;
@@ -28,7 +30,10 @@
             cursor: none;
         }
 
-        h1, h2, h3, .serif {
+        h1,
+        h2,
+        h3,
+        .serif {
             font-family: 'Italiana', serif;
         }
 
@@ -45,7 +50,7 @@
             transition: width 0.3s, height 0.3s;
             mix-blend-mode: difference;
         }
-        
+
         .cursor.hovered {
             width: 60px;
             height: 60px;
@@ -69,7 +74,7 @@
         .reveal-text-container {
             overflow: hidden;
         }
-        
+
         .reveal-text {
             transform: translateY(100%);
             transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -80,7 +85,7 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         .img-container img {
             width: 100%;
             height: 100%;
@@ -98,55 +103,58 @@
             transform: scale(1.05);
             transition: transform 0.7s ease;
         }
-        
+
         /* Grid Utilities */
         .grid-border {
             border-bottom: 1px solid #222;
         }
 
         /* --- LOADER STYLES --- */
-.loader-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index: 10000; /* Ensures it stays on top of everything */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 10000;
+            /* Ensures it stays on top of everything */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
-.loader-count {
-    font-family: 'Italiana', serif;
-    font-size: 15vw;
-    color: #d4af37; /* Gold accent */
-    line-height: 1;
-}
+        .loader-count {
+            font-family: 'Italiana', serif;
+            font-size: 15vw;
+            color: #d4af37;
+            /* Gold accent */
+            line-height: 1;
+        }
 
-.loader-text {
-    font-family: 'Manrope', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.8rem;
-    margin-top: 20px;
-    color: #666;
-}
+        .loader-text {
+            font-family: 'Manrope', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.8rem;
+            margin-top: 20px;
+            color: #666;
+        }
 
-/* Initially hide body scroll until loader finishes */
-body {
-    overflow: hidden;
-    height: 100vh;
-}
+        /* Initially hide body scroll until loader finishes */
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
     </style>
 </head>
+
 <body class="antialiased selection:bg-[#d4af37] selection:text-black">
     <div class="loader-overlay">
-    <div class="loader-count">0%</div>
-    <div class="loader-text">Sayan Adhikary • Portfolio</div>
-</div>
+        <div class="loader-count">0%</div>
+        <div class="loader-text">Sayan Adhikary • Portfolio</div>
+    </div>
 
     <div class="cursor"></div>
 
@@ -161,7 +169,8 @@ body {
             <a href="#skills" class="hover-trigger hover:text-[#d4af37] transition">Skills</a>
             <a href="#contact" class="hover-trigger hover:text-[#d4af37] transition">Contact</a>
         </div>
-        <a href="#contact" class="hover-trigger border border-white/20 px-6 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">
+        <a href="#contact"
+            class="hover-trigger border border-white/20 px-6 py-2 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">
             Let's Talk
         </a>
     </nav>
@@ -169,17 +178,20 @@ body {
     <main id="main-content">
 
         <section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 relative">
-            <p class="text-xs md:text-sm uppercase tracking-[0.3em] mb-6 text-gray-500 hero-fade">Senior Product Manager</p>
+            <p class="text-xs md:text-sm uppercase tracking-[0.3em] mb-6 text-gray-500 hero-fade">Senior Product Manager
+            </p>
             <h1 class="text-[12vw] leading-[0.9] text-center mix-blend-difference z-10 text-white">
                 <div class="reveal-text-container"><span class="block reveal-text">SOLVING</span></div>
                 <div class="reveal-text-container"><span class="block reveal-text">COMPLEX</span></div>
                 <div class="reveal-text-container"><span class="block reveal-text">PROBLEMS</span></div>
             </h1>
             <div class="mt-12 max-w-lg text-center text-gray-400 text-sm md:text-base leading-relaxed hero-fade">
-                Building products that solve real problems and drive business growth. 6 years of turning complex challenges into elegant solutions.
+                Building products that solve real problems and drive business growth. 6 years of turning complex
+                challenges into elegant solutions.
             </div>
-            
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 hero-fade">
+
+            <div
+                class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 hero-fade">
                 <span class="text-[10px] uppercase tracking-widest">Scroll</span>
                 <div class="w-[1px] h-12 bg-gray-700"></div>
             </div>
@@ -189,7 +201,8 @@ body {
             <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-16">
                 <div class="md:col-span-4">
                     <h2 class="text-sm uppercase tracking-widest text-gray-500 mb-8">About Me</h2>
-                    <div class="h-[400px] w-full bg-gray-900 img-container rounded-sm grayscale hover:grayscale-0 transition duration-700">
+                    <div
+                        class="h-[400px] w-full bg-gray-900 img-container rounded-sm grayscale hover:grayscale-0 transition duration-700">
                         <img src="dp-3.PNG" alt="Sayan Adhikary">
                     </div>
                 </div>
@@ -198,8 +211,13 @@ body {
                         "Specialized in building 0-to-1 products and scaling them to millions of users."
                     </h3>
                     <div class="text-gray-400 leading-relaxed space-y-6 max-w-2xl">
-                        <p>Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the Year. Whether it's launching a premium matrimony vertical from scratch or building AI systems that process thousands of profiles daily, I focus on products that create tangible value for users and businesses alike.</p>
-                        <p>I'm energized by hard problems that require both strategic thinking and hands-on execution. From designing database architectures to analyzing user behavior patterns, I thrive in environments where I can wear multiple hats.</p>
+                        <p>Currently leading product initiatives at ABP Group, recognized as Top Performing Team of the
+                            Year. Whether it's launching a premium matrimony vertical from scratch or building AI
+                            systems that process thousands of profiles daily, I focus on products that create tangible
+                            value for users and businesses alike.</p>
+                        <p>I'm energized by hard problems that require both strategic thinking and hands-on execution.
+                            From designing database architectures to analyzing user behavior patterns, I thrive in
+                            environments where I can wear multiple hats.</p>
                     </div>
 
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-12 border-t border-gray-900">
@@ -226,63 +244,92 @@ body {
 
         <section id="experience" class="py-24 px-6 md:px-20 bg-[#0c0c0c]">
             <h2 class="text-5xl md:text-7xl mb-16 text-center serif text-[#999]">Experience</h2>
-            
+
             <div class="max-w-5xl mx-auto space-y-4">
-                
-                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+
+                <div
+                    class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
-                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Assistant Manager - Product</h3>
-                        <span class="text-[#d4af37] text-sm uppercase tracking-widest">ABPweddings (ABP Group)</span>
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Assistant Manager -
+                            Product</h3>
+                        <a href="https://abpweddings.com" target="_blank" rel="noopener noreferrer"
+                            class="hover:opacity-80">
+                            <span class="text-[#d4af37] text-sm uppercase underline tracking-widest">ABPweddings (ABP
+                                Group)</span>
+                        </a>
                     </div>
                     <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-1">
                         <span>Apr 2026 - Present</span>
                         <span>Kolkata, India</span>
                     </div>
                 </div>
-                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                <div
+                    class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
-                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Senior Executive - Product</h3>
-                        <span class="text-[#d4af37] text-sm uppercase tracking-widest">ABPweddings (ABP Group)</span>
-                    </div>
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Senior Executive -
+                            Product</h3>
+<a href="https://abpweddings.com" target="_blank" rel="noopener noreferrer"
+                            class="hover:opacity-80">
+                            <span class="text-[#d4af37] text-sm uppercase underline tracking-widest">ABPweddings (ABP
+                                Group)</span>
+                        </a>                    </div>
                     <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-1">
                         <span>Apr 2024 - Mar 2026 (2 Years)</span>
                         <span>Kolkata, India</span>
                     </div>
                 </div>
-                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                <div
+                    class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
-                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Executive - Product</h3>
-                        <span class="text-[#d4af37] text-sm uppercase tracking-widest">ABPweddings (ABP Group)</span>
-                    </div>
-                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Executive - Product
+                        </h3>
+<a href="https://abpweddings.com" target="_blank" rel="noopener noreferrer"
+                            class="hover:opacity-80">
+                            <span class="text-[#d4af37] text-sm uppercase underline tracking-widest">ABPweddings (ABP
+                                Group)</span>
+                        </a>                    </div>
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-1">
                         <span>Sep 2022 - Mar 2024 (1.5 Years)</span>
                         <span>Kolkata, India</span>
                     </div>
                 </div>
-                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                <div
+                    class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
                         <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Project Manager</h3>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest">Codebuddy Pvt Ltd</span>
+                        <a href="http://codebuddy.co/" target="_blank" rel="noopener noreferrer"
+                            class="hover:opacity-80">
+                            <span class="text-gray-500 text-sm uppercase underline tracking-widest">Codebuddy Pvt Ltd</span>
+                        </a>
                     </div>
-                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-1">
                         <span>Apr 2022 - Sep 2022 (6 months)</span>
                     </div>
                 </div>
-                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                <div
+                    class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
                         <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Product Manager</h3>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest">eWards</span>
+                        <a href="http://myewards.in/" target="_blank" rel="noopener noreferrer"
+                            class="hover:opacity-80">
+                            <span class="text-gray-500 text-sm uppercase underline tracking-widest">eWards</span>
+                        </a>
                     </div>
-                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-1">
                         <span>Apr 2021 - Mar 2022 (1.5 Years)</span>
                     </div>
                 </div>
-                <div class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                <div
+                    class="group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
                     <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
-                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Product Management Intern</h3>
-                        <span class="text-gray-500 text-sm uppercase tracking-widest">eWards</span>
+                        <h3 class="text-2xl md:text-3xl serif group-hover:text-white transition">Product Management
+                            Intern</h3>
+                        <a href="http://myewards.in/" target="_blank" rel="noopener noreferrer"
+                            class="hover:opacity-80">
+                            <span class="text-gray-500 text-sm uppercase underline tracking-widest">eWards</span>
+                        </a>
                     </div>
-                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-6">
+                    <div class="flex justify-between text-xs text-gray-500 uppercase tracking-widest mb-1">
                         <span>Oct 2020 - Mar 2021 (6 months)</span>
                     </div>
                 </div>
@@ -298,40 +345,64 @@ body {
 
             <div class="grid md:grid-cols-2 gap-0 border-b border-gray-900 group">
                 <div class="h-[60vh] img-container bg-gray-900 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2670&auto=format&fit=crop" alt="Elite Matrimony" class="grayscale group-hover:grayscale-0 transition duration-1000">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2670&auto=format&fit=crop"
+                        alt="Elite Matrimony" class="grayscale group-hover:grayscale-0 transition duration-1000">
                     <div class="absolute inset-0 bg-black/30"></div>
                 </div>
                 <div class="p-10 md:p-20 flex flex-col justify-center border-l border-gray-900 bg-[#0a0a0a]">
                     <span class="text-[#d4af37] text-xs uppercase tracking-widest mb-4">0-to-1 Launch</span>
                     <h3 class="text-4xl serif mb-6">Elite Matrimony</h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed">Premium matchmaking platform launched from 0-to-1 with AI-powered recommendations. Established premium vertical driving substantial ARPU growth.</p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">Premium matchmaking platform launched from 0-to-1 with
+                        AI-powered recommendations. Established premium vertical driving substantial ARPU growth.</p>
                     <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div><p class="text-white text-xl serif">40%</p><span class="text-xs text-gray-600 uppercase">ARPU Increase</span></div>
-                        <div><p class="text-white text-xl serif">3K+</p><span class="text-xs text-gray-600 uppercase">Initial Users</span></div>
+                        <div>
+                            <p class="text-white text-xl serif">40%</p><span
+                                class="text-xs text-gray-600 uppercase">ARPU Increase</span>
+                        </div>
+                        <div>
+                            <p class="text-white text-xl serif">3K+</p><span
+                                class="text-xs text-gray-600 uppercase">Initial Users</span>
+                        </div>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">System Design</span>
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">B2C Platform</span>
+                        <span
+                            class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">System
+                            Design</span>
+                        <span
+                            class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">B2C
+                            Platform</span>
                     </div>
                 </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-0 border-b border-gray-900 group">
-                <div class="p-10 md:p-20 flex flex-col justify-center border-r border-gray-900 bg-[#0a0a0a] order-2 md:order-1">
+                <div
+                    class="p-10 md:p-20 flex flex-col justify-center border-r border-gray-900 bg-[#0a0a0a] order-2 md:order-1">
                     <span class="text-[#d4af37] text-xs uppercase tracking-widest mb-4">Automation & ML</span>
                     <h3 class="text-4xl serif mb-6">AI Moderation System</h3>
-                    <p class="text-gray-400 mb-8 leading-relaxed">End-to-end AI-powered content moderation for photos and government IDs using OCR and ML models.</p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">End-to-end AI-powered content moderation for photos
+                        and government IDs using OCR and ML models.</p>
                     <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div><p class="text-white text-xl serif">95%</p><span class="text-xs text-gray-600 uppercase">Time Saved</span></div>
-                        <div><p class="text-white text-xl serif">45%</p><span class="text-xs text-gray-600 uppercase">Quality Up</span></div>
+                        <div>
+                            <p class="text-white text-xl serif">95%</p><span
+                                class="text-xs text-gray-600 uppercase">Time Saved</span>
+                        </div>
+                        <div>
+                            <p class="text-white text-xl serif">45%</p><span
+                                class="text-xs text-gray-600 uppercase">Quality Up</span>
+                        </div>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Computer Vision</span>
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Python</span>
+                        <span
+                            class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Computer
+                            Vision</span>
+                        <span
+                            class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Python</span>
                     </div>
                 </div>
                 <div class="h-[60vh] img-container bg-gray-900 overflow-hidden relative order-1 md:order-2">
-                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=2832&auto=format&fit=crop" alt="AI System" class="grayscale group-hover:grayscale-0 transition duration-1000">
+                    <img src="https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=2832&auto=format&fit=crop"
+                        alt="AI System" class="grayscale group-hover:grayscale-0 transition duration-1000">
                     <div class="absolute inset-0 bg-black/30"></div>
                 </div>
             </div>
@@ -340,17 +411,20 @@ body {
                 <div class="p-10 border-r border-gray-900 hover:bg-[#111] transition duration-300">
                     <h4 class="text-xl serif mb-4">Customer Data Platform</h4>
                     <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">Growth • Analytics</p>
-                    <p class="text-sm text-gray-400">Multi-channel CDP enabling personalized campaigns across 7 channels. 35% Engagement Uplift.</p>
+                    <p class="text-sm text-gray-400">Multi-channel CDP enabling personalized campaigns across 7
+                        channels. 35% Engagement Uplift.</p>
                 </div>
                 <div class="p-10 border-r border-gray-900 hover:bg-[#111] transition duration-300">
                     <h4 class="text-xl serif mb-4">Ad Booking Platform</h4>
                     <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">Revenue • B2C</p>
-                    <p class="text-sm text-gray-400">Self-serve platform for The Telegraph. Recaptured 15% revenue and processed 5K+ monthly orders.</p>
+                    <p class="text-sm text-gray-400">Self-serve platform for The Telegraph. Recaptured 15% revenue and
+                        processed 5K+ monthly orders.</p>
                 </div>
                 <div class="p-10 hover:bg-[#111] transition duration-300">
                     <h4 class="text-xl serif mb-4">eWards Restaurant Platform</h4>
                     <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">SaaS • Integration</p>
-                    <p class="text-sm text-gray-400">White-label loyalty platform serving 12+ brands. 42% increase in repeat purchase rate.</p>
+                    <p class="text-sm text-gray-400">White-label loyalty platform serving 12+ brands. 42% increase in
+                        repeat purchase rate.</p>
                 </div>
             </div>
             <div class="grid md:grid-cols-3 border-b border-gray-900">
@@ -373,69 +447,92 @@ body {
         </section>
 
         <section id="case-studies" class="py-24 bg-[#0c0c0c] border-t border-gray-900">
-    <div class="px-6 md:px-20 mb-16">
-        <h2 class="text-sm uppercase tracking-[0.3em] mb-4 text-[#d4af37]">Analysis & Strategy</h2>
-        <h3 class="text-4xl md:text-5xl serif text-white">Case Studies & Teardowns</h3>
-    </div>
-    
-    <div class="max-w-5xl mx-auto px-6 md:px-0 space-y-8">
-        
-        <a href="https://assets.nextleap.app/submissions/Milestone1-Submission-361e8d1c-12c3-4622-ae04-5aec19993299.pdf" target="_blank" class="block group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
-            <div class="flex items-start gap-6">
-                <div class="w-12 h-12 flex-shrink-0 bg-[#1a1a1a] rounded-lg flex items-center justify-center border border-gray-800 group-hover:border-[#d4af37] transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" class="w-6 h-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 invert transition">
-                </div>
-                
-                <div class="flex-grow">
-                    <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
-                        <h4 class="text-2xl md:text-3xl serif text-gray-300 group-hover:text-white transition">ChatGPT Voice Adoption</h4>
-                        <span class="text-[#d4af37] text-xs uppercase tracking-widest mt-2 md:mt-0 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition duration-300 translate-x-[-10px] group-hover:translate-x-0">
-                            Read PDF 
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </span>
-                    </div>
-                    <p class="text-sm text-gray-400 max-w-3xl leading-relaxed mb-6">
-                        Market Analysis and Mapping Outcomes to increase voice usage in the ChatGPT Mobile App. A deep dive into user behavior, growth loops, and actionable product strategies.
-                    </p>
-                    <div class="flex gap-3">
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">NextLeap</span>
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Growth Strategy</span>
-                    </div>
-                </div>
+            <div class="px-6 md:px-20 mb-16">
+                <h2 class="text-sm uppercase tracking-[0.3em] mb-4 text-[#d4af37]">Analysis & Strategy</h2>
+                <h3 class="text-4xl md:text-5xl serif text-white">Case Studies & Teardowns</h3>
             </div>
-        </a>
 
-        <a href="#" target="_blank" class="block group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
-            <div class="flex items-start gap-6">
-                <div class="w-12 h-12 flex-shrink-0 bg-[#1a1a1a] rounded-lg flex items-center justify-center border border-gray-800 group-hover:border-[#d4af37] transition">
-                    <img src="https://i.tracxn.com/logo/company/peppo.co.in_Logo_a2e566dd-28ee-48c1-a056-bb557b2aaee0.jpg?format=webp&height=120&width=120" alt="ChatGPT" class="w-6 h-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 invert transition">
-                </div>
-                
-                <div class="flex-grow">
-                    <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
-                        <h4 class="text-2xl md:text-3xl serif text-gray-300 group-hover:text-white transition">Improve Retention & LTV: Peppo</h4>
-                        <!-- <span class="text-[#d4af37] text-xs uppercase tracking-widest mt-2 md:mt-0 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition duration-300 translate-x-[-10px] group-hover:translate-x-0">
+            <div class="max-w-5xl mx-auto px-6 md:px-0 space-y-8">
+
+                <a href="https://assets.nextleap.app/submissions/Milestone1-Submission-361e8d1c-12c3-4622-ae04-5aec19993299.pdf"
+                    target="_blank"
+                    class="block group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                    <div class="flex items-start gap-6">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 bg-[#1a1a1a] rounded-lg flex items-center justify-center border border-gray-800 group-hover:border-[#d4af37] transition">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg"
+                                alt="ChatGPT"
+                                class="w-6 h-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 invert transition">
+                        </div>
+
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
+                                <h4 class="text-2xl md:text-3xl serif text-gray-300 group-hover:text-white transition">
+                                    ChatGPT Voice Adoption</h4>
+                                <span
+                                    class="text-[#d4af37] text-xs uppercase tracking-widest mt-2 md:mt-0 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition duration-300 translate-x-[-10px] group-hover:translate-x-0">
+                                    Read PDF
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <p class="text-sm text-gray-400 max-w-3xl leading-relaxed mb-6">
+                                Market Analysis and Mapping Outcomes to increase voice usage in the ChatGPT Mobile App.
+                                A deep dive into user behavior, growth loops, and actionable product strategies.
+                            </p>
+                            <div class="flex gap-3">
+                                <span
+                                    class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">NextLeap</span>
+                                <span
+                                    class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Growth
+                                    Strategy</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank"
+                    class="block group border-b border-gray-800 pb-8 hover:border-[#d4af37] transition duration-500 cursor-pointer hover-trigger">
+                    <div class="flex items-start gap-6">
+                        <div
+                            class="w-12 h-12 flex-shrink-0 bg-[#1a1a1a] rounded-lg flex items-center justify-center border border-gray-800 group-hover:border-[#d4af37] transition">
+                            <img src="https://i.tracxn.com/logo/company/peppo.co.in_Logo_a2e566dd-28ee-48c1-a056-bb557b2aaee0.jpg?format=webp&height=120&width=120"
+                                alt="ChatGPT"
+                                class="w-6 h-6 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 invert transition">
+                        </div>
+
+                        <div class="flex-grow">
+                            <div class="flex flex-col md:flex-row justify-between md:items-baseline mb-4">
+                                <h4 class="text-2xl md:text-3xl serif text-gray-300 group-hover:text-white transition">
+                                    Improve Retention & LTV: Peppo</h4>
+                                <!-- <span class="text-[#d4af37] text-xs uppercase tracking-widest mt-2 md:mt-0 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition duration-300 translate-x-[-10px] group-hover:translate-x-0">
                             View Case 
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </span> -->
+                            </div>
+                            <p class="text-sm text-gray-400 max-w-3xl leading-relaxed mb-6">
+                                An analysis of retention frameworks and Lifetime Value (LTV) optimization for Peppo.
+                                Focused on identifying churn triggers and implementing loyalty-driven product hooks.
+                            </p>
+                            <div class="flex gap-3">
+                                <span
+                                    class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Retention</span>
+                                <span
+                                    class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">LTV
+                                    Optimization</span>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-sm text-gray-400 max-w-3xl leading-relaxed mb-6">
-                        An analysis of retention frameworks and Lifetime Value (LTV) optimization for Peppo. Focused on identifying churn triggers and implementing loyalty-driven product hooks.
-                    </p>
-                    <div class="flex gap-3">
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">Retention</span>
-                        <span class="px-3 py-1 border border-gray-800 rounded-full text-[10px] uppercase text-gray-500">LTV Optimization</span>
-                    </div>
-                </div>
-            </div>
-        </a>
+                </a>
 
-    </div>
-</section>
+            </div>
+        </section>
 
         <section id="skills" class="py-20 px-6 md:px-20 bg-black">
             <h2 class="text-sm uppercase tracking-[0.3em] mb-12 text-gray-180">Technical Arsenal</h2>
-            
+
             <div class="grid md:grid-cols-3 gap-12">
                 <div>
                     <h3 class="text-2xl serif text-[#d4af37] mb-6">Strategy</h3>
@@ -485,7 +582,8 @@ body {
                             <span class="text-xs text-gray-500">June 2026</span>
                         </div>
                         <p class="text-gray-400 text-sm mb-2">Scrum.org</p>
-                        <p class="text-gray-500 text-xs leading-relaxed">Certification in Scrum principles and practices for effective product ownership.</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Certification in Scrum principles and practices
+                            for effective product ownership.</p>
                     </div>
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
@@ -493,7 +591,8 @@ body {
                             <span class="text-xs text-gray-500">June 2026</span>
                         </div>
                         <p class="text-gray-400 text-sm mb-2">NextLeap</p>
-                        <p class="text-gray-500 text-xs leading-relaxed">16 week cohort focused on building product strategy, user research, and data-driven decision making.</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">16 week cohort focused on building product
+                            strategy, user research, and data-driven decision making.</p>
                     </div>
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
@@ -501,7 +600,9 @@ body {
                             <span class="text-xs text-gray-500">2018 - 2021</span>
                         </div>
                         <p class="text-gray-400 text-sm mb-2">Techno India University, Kolkata</p>
-                        <p class="text-gray-500 text-xs leading-relaxed">Silver Medalist (Rank 2). First student in batch to secure placement. Represented University in state-level debates (Won GST Dept of India debate).</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Silver Medalist (Rank 2). First student in
+                            batch to secure placement. Represented University in state-level debates (Won GST Dept of
+                            India debate).</p>
                     </div>
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
@@ -509,7 +610,8 @@ body {
                             <span class="text-xs text-gray-500">2021</span>
                         </div>
                         <p class="text-gray-400 text-sm">HackerRank</p>
-                        <p class="text-gray-500 text-xs leading-relaxed">Mastery in complex joins, sub-queries and data retrieval strategies.</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Mastery in complex joins, sub-queries and data
+                            retrieval strategies.</p>
                     </div>
                     <div>
                         <div class="flex justify-between items-baseline mb-2">
@@ -517,7 +619,8 @@ body {
                             <span class="text-xs text-gray-500">2020</span>
                         </div>
                         <p class="text-gray-400 text-sm">Google (Coursera)</p>
-                        <p class="text-gray-500 text-xs leading-relaxed">Automation strategy, functional programming, and data structure management.</p>
+                        <p class="text-gray-500 text-xs leading-relaxed">Automation strategy, functional programming,
+                            and data structure management.</p>
                     </div>
                 </div>
             </div>
@@ -527,12 +630,16 @@ body {
             <div class="px-6 md:px-20">
                 <h2 class="text-sm uppercase tracking-widest text-gray-300 mb-12">Endorsements</h2>
                 <div class="grid md:grid-cols-2 gap-8">
-                    
-                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
-                        <p class="serif text-xl mb-6 text-gray-300">"Young, enthusiastic and a keen learner who can be trusted with innovative and challenging projects. He's the man to go to for your data management and product solutions."</p>
+
+                    <div
+                        class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"Young, enthusiastic and a keen learner who can be
+                            trusted with innovative and challenging projects. He's the man to go to for your data
+                            management and product solutions."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
-                                <img src="https://ui-avatars.com/api/?name=Karishma+Pal&background=random" alt="K" class="w-full h-full object-cover">
+                                <img src="https://ui-avatars.com/api/?name=Karishma+Pal&background=random" alt="K"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <p class="text-sm font-bold text-white">Karishma Pal</p>
@@ -541,11 +648,15 @@ body {
                         </div>
                     </div>
 
-                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
-                        <p class="serif text-xl mb-6 text-gray-300">"Sayan played a key role in effectively bridging clients and the development team... clearly translated requirements into actionable inputs. A dependable, genuinely pleasant colleague."</p>
+                    <div
+                        class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"Sayan played a key role in effectively bridging
+                            clients and the development team... clearly translated requirements into actionable inputs.
+                            A dependable, genuinely pleasant colleague."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
-                                <img src="https://ui-avatars.com/api/?name=Manish+Gupta&background=random" alt="M" class="w-full h-full object-cover">
+                                <img src="https://ui-avatars.com/api/?name=Manish+Gupta&background=random" alt="M"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <p class="text-sm font-bold text-white">Manish Gupta</p>
@@ -554,11 +665,14 @@ body {
                         </div>
                     </div>
 
-                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
-                        <p class="serif text-xl mb-6 text-gray-300">"An exceptional Product Manager who consistently bridges the gap between business vision, customer needs, and execution."</p>
+                    <div
+                        class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"An exceptional Product Manager who consistently
+                            bridges the gap between business vision, customer needs, and execution."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
-                                <img src="https://ui-avatars.com/api/?name=Santosh+Das&background=random" alt="S" class="w-full h-full object-cover">
+                                <img src="https://ui-avatars.com/api/?name=Santosh+Das&background=random" alt="S"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <p class="text-sm font-bold text-white">Santosh Kumar Das</p>
@@ -566,11 +680,15 @@ body {
                             </div>
                         </div>
                     </div>
-                    <div class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
-                        <p class="serif text-xl mb-6 text-gray-300">"Sayan is very hard working professional. He is known for his perfection and dedication towards his work. He is very helpful and has been taking up new challenges since day one."</p>
+                    <div
+                        class="p-8 bg-[#111] rounded-sm border border-gray-800 hover:border-[#d4af37] transition duration-300">
+                        <p class="serif text-xl mb-6 text-gray-300">"Sayan is very hard working professional. He is
+                            known for his perfection and dedication towards his work. He is very helpful and has been
+                            taking up new challenges since day one."</p>
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
-                                <img src="https://ui-avatars.com/api/?name=Santosh+Das&background=random" alt="S" class="w-full h-full object-cover">
+                                <img src="https://ui-avatars.com/api/?name=Santosh+Das&background=random" alt="S"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <p class="text-sm font-bold text-white">Sakshi Bagri</p>
@@ -589,19 +707,22 @@ body {
                     <div class="mb-4 text-[#d4af37] text-2xl">❤</div>
                     <h4 class="text-lg font-bold mb-2">Founder, I Love Difference</h4>
                     <p class="text-xs text-gray-500 uppercase mb-4">Social Impact</p>
-                    <p class="text-sm text-gray-400">Founded a non-profit in 2017. Impacted 4,000+ street children in Kolkata through food and clothing drives.</p>
+                    <p class="text-sm text-gray-400">Founded a non-profit in 2017. Impacted 4,000+ street children in
+                        Kolkata through food and clothing drives.</p>
                 </div>
                 <div class="p-6 hover-trigger">
                     <div class="mb-4 text-[#d4af37] text-2xl">⚡</div>
                     <h4 class="text-lg font-bold mb-2">AI & Gen-Labs</h4>
                     <p class="text-xs text-gray-500 uppercase mb-4">Tech Enthusiast</p>
-                    <p class="text-sm text-gray-400">Building Custom GPTs and automation workflows. Experimenting with LLMs for micro-productivity.</p>
+                    <p class="text-sm text-gray-400">Building Custom GPTs and automation workflows. Experimenting with
+                        LLMs for micro-productivity.</p>
                 </div>
                 <div class="p-6 hover-trigger">
                     <div class="mb-4 text-[#d4af37] text-2xl">📈</div>
                     <h4 class="text-lg font-bold mb-2">Finance & Freedom</h4>
                     <p class="text-xs text-gray-500 uppercase mb-4">Strategy & Travel</p>
-                    <p class="text-sm text-gray-400">Active investor in Equity/Mutual Funds. Exploring the countryside on long-distance bike rides.</p>
+                    <p class="text-sm text-gray-400">Active investor in Equity/Mutual Funds. Exploring the countryside
+                        on long-distance bike rides.</p>
                 </div>
             </div>
         </section>
@@ -616,9 +737,11 @@ body {
             <div class="grid md:grid-cols-2 gap-12 border-t border-gray-800 pt-12">
                 <div>
                     <p class="text-gray-400 max-w-sm mb-8 text-sm">
-                        Interested in working together? I'd love to hear about your product challenges and explore how we can create impact together.
+                        Interested in working together? I'd love to hear about your product challenges and explore how
+                        we can create impact together.
                     </p>
-                    <a href="mailto:sayan.adhikary.work@gmail.com" class="hover-trigger text-xl md:text-3xl border-b border-gray-700 hover:border-[#d4af37] pb-2 inline-block transition text-white">
+                    <a href="mailto:sayan.adhikary.work@gmail.com"
+                        class="hover-trigger text-xl md:text-3xl border-b border-gray-700 hover:border-[#d4af37] pb-2 inline-block transition text-white">
                         sayan.adhikary.work@gmail.com
                     </a>
                     <p class="mt-4 text-gray-500">+91-9748772134</p>
@@ -627,8 +750,10 @@ body {
                     <div>
                         <h4 class="text-white mb-4">Connect</h4>
                         <ul class="space-y-4">
-                            <li><a href="https://linkedin.com/in/sayan-product" target="_blank" class="hover-trigger hover:text-[#d4af37] transition">LinkedIn</a></li>
-                            <li><a href="mailto:sayan.adhikary.work@gmail.com" target="_blank" class="hover-trigger hover:text-[#d4af37] transition">Email</a></li>
+                            <li><a href="https://linkedin.com/in/sayan-product" target="_blank"
+                                    class="hover-trigger hover:text-[#d4af37] transition">LinkedIn</a></li>
+                            <li><a href="mailto:sayan.adhikary.work@gmail.com" target="_blank"
+                                    class="hover-trigger hover:text-[#d4af37] transition">Email</a></li>
                             <!-- <li><a href="https://github.com/sayan-adhikary-23" target="_blank" class="hover-trigger hover:text-[#d4af37] transition">GitHub</a></li> -->
                         </ul>
                     </div>
@@ -667,48 +792,48 @@ body {
         gsap.registerPlugin(ScrollTrigger);
 
         // --- LOADER ANIMATION SEQUENCE ---
-const tl = gsap.timeline();
+        const tl = gsap.timeline();
 
-// 1. Counter Animation (0 to 100)
-let progressObj = { value: 0 };
-tl.to(progressObj, {
-    value: 100,
-    duration: 2.5,
-    ease: "power2.inOut",
-    onUpdate: function() {
-        document.querySelector(".loader-count").textContent = Math.round(progressObj.value) + "%";
-    }
-})
+        // 1. Counter Animation (0 to 100)
+        let progressObj = { value: 0 };
+        tl.to(progressObj, {
+            value: 100,
+            duration: 2.5,
+            ease: "power2.inOut",
+            onUpdate: function () {
+                document.querySelector(".loader-count").textContent = Math.round(progressObj.value) + "%";
+            }
+        })
 
-// 2. Fade out the small loader text
-.to(".loader-text", {
-    opacity: 0,
-    duration: 0.5
-}, "-=0.5")
+            // 2. Fade out the small loader text
+            .to(".loader-text", {
+                opacity: 0,
+                duration: 0.5
+            }, "-=0.5")
 
-// 3. Slide the black curtain UP
-.to(".loader-overlay", {
-    y: "-100%",
-    duration: 1.2,
-    ease: "power4.inOut"
-})
+            // 3. Slide the black curtain UP
+            .to(".loader-overlay", {
+                y: "-100%",
+                duration: 1.2,
+                ease: "power4.inOut"
+            })
 
-// 4. Fade in Nav and reveal Hero Text
-.to("nav", { opacity: 1, duration: 1 }, "-=0.8")
-.to(".reveal-text", {
-    y: 0,
-    stagger: 0.2,
-    duration: 1.5,
-    ease: "power4.out",
-    onComplete: () => {
-        // Unlock scrolling once the animation is done
-        document.body.style.overflow = "auto";
-        document.body.style.height = "auto";
-    }
-}, "-=0.8")
-.to(".hero-fade", { opacity: 1, y: 0, duration: 1, stagger: 0.2 }, "-=1.2");
+            // 4. Fade in Nav and reveal Hero Text
+            .to("nav", { opacity: 1, duration: 1 }, "-=0.8")
+            .to(".reveal-text", {
+                y: 0,
+                stagger: 0.2,
+                duration: 1.5,
+                ease: "power4.out",
+                onComplete: () => {
+                    // Unlock scrolling once the animation is done
+                    document.body.style.overflow = "auto";
+                    document.body.style.height = "auto";
+                }
+            }, "-=0.8")
+            .to(".hero-fade", { opacity: 1, y: 0, duration: 1, stagger: 0.2 }, "-=1.2");
 
-        
+
 
         // Cursor
         const cursor = document.querySelector('.cursor');
@@ -746,7 +871,8 @@ tl.to(progressObj, {
             });
         });
 
-        
+
     </script>
 </body>
+
 </html>
